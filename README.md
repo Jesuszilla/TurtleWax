@@ -165,7 +165,7 @@ The following maps are made available to the user. All times are in frames:
 
 ## Usage (1.5)
 To properly make use of the command stateNo setting system, you must handle the ChangeState logic by reading the
-`Map(tw_Buffer_ChangeStateNo)` variable. Once you cnange to the state that the buffering system sets, it will
+`Map(tw_Buffer_ChangeStateNo)` variable. Once you change to the state that the buffering system sets, it will
 automatically reset it. An example CNS implementation may look as follows:
 
 Some Lua scripting is required, but an example, working file is provided in buffering.lua.example for reference.
