@@ -160,8 +160,10 @@ end
 
 -- shit in Lua works exactly like you'd expect, so we can use this
 -- to make some reasonable predictions
---@return boolean
+--@return integer
 function predictState(p)
+	-- Default implementation to prevent crashing
+	return -1
 end
 
 -- Power limiter function.
