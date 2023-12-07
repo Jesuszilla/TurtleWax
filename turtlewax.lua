@@ -1821,7 +1821,7 @@ tw.specials={
 	l66        ={name ='lff',b_t=0,snk_t=0,tt=9,inputs={right,right},input_types={hold,press},snkonly=0},
 	l44        ={name ='lbb',b_t=0,snk_t=0,tt=9,inputs={left,left},input_types={hold,press},snkonly=0},
 	i66        ={name ='ff',b_t=0,snk_t=0,tt=9,inputs={release_Right,right},input_types={release,press},snkonly=0},
-	i44        ={name ='bb',b_t=0,snk_t=0,tt=9,inputs={left,left},input_types={release,press},snkonly=0},
+	i44        ={name ='bb',b_t=0,snk_t=0,tt=9,inputs={release_Left,left},input_types={release,press},snkonly=0},
 	i28        ={name ='cdu',b_t=0,snk_t=0,tt=9,inputs={down,up},input_types={hold,press},snkonly=0,charge=true,dir={2,6,10}},
 }
 
