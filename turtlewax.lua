@@ -779,7 +779,7 @@ function tw.setCharge(p)
 	local cpt = tw.defaults[p].charge_partition
 
 	--check holding left
-	if tw.BitAND(tw.h_dir[p][1],left) > 0 or tw.BitAND(tw.r_dir[p][1],release_Left) > 0 then
+	if tw.BitAND(tw.h_dir[p][1],left) > 0 or tw.BitAND(tw.h_dir[p][1],release_Left) > 0 then
 		ch_valb[p]=ch_valb[p]+1
 		if cpt then
 			chp_tb[p]=tw.defaults[p].tw_ChargePartitionTime
@@ -803,7 +803,7 @@ function tw.setCharge(p)
 	end
 
 	--check holding right
-	if tw.BitAND(tw.h_dir[p][1],right) > 0 or tw.BitAND(tw.r_dir[p][1],release_Right) > 0 then
+	if tw.BitAND(tw.h_dir[p][1],right) > 0 or tw.BitAND(tw.h_dir[p][1],release_Right) > 0 then
 		ch_valf[p]=ch_valf[p]+1
 		if cpt then
 			chp_tf[p]=tw.defaults[p].tw_ChargePartitionTime
@@ -828,7 +828,7 @@ function tw.setCharge(p)
 	end
 
 	--check holding down
-	if tw.BitAND(tw.h_dir[p][1],down) > 0 or tw.BitAND(tw.r_dir[p][1],release_Down) > 0  then
+	if tw.BitAND(tw.h_dir[p][1],down) > 0 or tw.BitAND(tw.h_dir[p][1],release_Down) > 0  then
 		ch_vald[p]=ch_vald[p]+1
 		if cpt then
 			chp_td[p] = tw.defaults[p].tw_ChargePartitionTime
@@ -853,12 +853,12 @@ function tw.setCharge(p)
 	end
 
 	--check holding up
-	if tw.BitAND(tw.h_dir[p][1],up) > 0 or tw.BitAND(tw.r_dir[p][1],release_Up) > 0  then
-		ch_vald[p]=ch_vald[p]+1
+	if tw.BitAND(tw.h_dir[p][1],up) > 0 or tw.BitAND(tw.h_dir[p][1],release_Up) > 0  then
+		ch_valu[p]=ch_valu[p]+1
 		if cpt then
-			chp_td[p]=tw.defaults[p].tw_ChargePartitionTime
+			chp_tu[p]=tw.defaults[p].tw_ChargePartitionTime
 		end
-		if ch_vald[p] > tw.defaults[p].U_ChargeTime then
+		if ch_valu[p] > tw.defaults[p].U_ChargeTime then
 			charMapSet(p, 'tw_U_ChargeReady',tw.defaults[p].U_BufferTime ,'set')
 		end
 	else
