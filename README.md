@@ -205,7 +205,7 @@ system sets, it will automatically reset it in +1 if you set it up like the exam
 implementation may look like the example below.
 
 You must also add `turtlewax.zss` and optionally (if you want the default command maps) `turtlewax_common.zss` to
-`CommonStates` in `config.json`.
+`CommonStates` in `config.json`. Change your `CommonCmd` to also use `common.cds` instead of `common.cmd`.
 
 You will need to create a buffering.zss file for your character(s). You may reference
 [TW Cvs Raiden](https://github.com/Jesuszilla/TW_Cvs_raiden) for an example implementation. When building your buffering.zss, most likely, you will have some
