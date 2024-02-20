@@ -139,10 +139,17 @@ The following maps are made available to the user. All times are in frames:
         </td>
         <td style="text-align: center;">0 (off)</td>
     </tr>
+    <tr>
+		<td style="text-align: center;">Map(tw_Buffer_ChangeStateNo)</td>
+		<td style="text-align: left;">
+			Set in your buffering.zss file to set move state. Keep at -1 for no change.
+		</td>
+		<td style="text-align: center;">(dynamic)</td>
+	</tr>
 	<tr>
 		<td style="text-align: center;">Map(tw_MoveStrength)</td>
 		<td style="text-align: left;">
-			Read-only. Set by the "strength" parameter in the move's table definition in buffering.lua.
+			Set in your buffering.zss file to set move strength.
 		</td>
 		<td style="text-align: center;">(dynamic)</td>
 	</tr>
@@ -161,15 +168,56 @@ The following maps are made available to the user. All times are in frames:
 		</td>
 		<td style="text-align: center;">0 (only set as-needed)</td>
 	</tr>
+    <tr>
+		<td style="text-align: center;">Map(tw_B_ChargeReady)</td>
+		<td style="text-align: left;">
+			Indicates that a back charge is ready.
+		</td>
+		<td style="text-align: center;">0 (set by system)</td>
+    </tr>
+    <tr>
+		<td style="text-align: center;">Map(tw_D_ChargeReady)</td>
+		<td style="text-align: left;">
+			Indicates that a down charge is ready.
+		</td>
+		<td style="text-align: center;">0 (set by system)</td>
+    </tr>
+    <tr>
+		<td style="text-align: center;">Map(tw_F_ChargeReady)</td>
+		<td style="text-align: left;">
+			Indicates that a forward charge is ready.
+		</td>
+		<td style="text-align: center;">0 (set by system)</td>
+    </tr>
+    <tr>
+		<td style="text-align: center;">Map(tw_U_ChargeReady)</td>
+		<td style="text-align: left;">
+			Indicates that an up charge is ready.
+		</td>
+		<td style="text-align: center;">0 (set by system)</td>
+    </tr>
 </table>
 
-## Usage (1.5)
-To properly make use of the command stateNo setting system, you must handle the ChangeState logic by reading the
-`Map(tw_Buffer_ChangeStateNo)` variable. Once you change to the state that the buffering system sets, it will
-automatically reset it. An example CNS implementation may look as follows:
+## Usage (2.0)
+To properly make use of the command stateNo setting system, you must handle the ChangeState logic by setting
+and reading the `Map(tw_Buffer_ChangeStateNo)` variable. Once you change to the state that the buffering
+system sets, it will automatically reset it in +1 if you set it up like the examples have it. An example CNS
+implementation may look like the example below.
 
-Some Lua scripting is required, but an example, working file is provided in buffering.lua.example for reference.
-To prevent any issues, please make sure this file is not in your mods folder when you run Turtle Wax!
+You must also add `turtlewax.zss` and optionally (if you want the default command maps) `turtlewax_common.zss` to
+`CommonStates` in `config.json`.
+
+You will need to create a buffering.zss file for your character(s). You may reference
+[TW Cvs Raiden](https://github.com/Jesuszilla/TW_Cvs_raiden) for an example implementation. When building your buffering.zss, most likely, you will have some
+commands that are alike such as `QCF`, `HCF`, and `QCFx2` for instance (they all contain `D,DF,F` or `236` as a substring).
+Because doing Lua operations every frame is expensive and there are currently no arrays in ZSS, **you, the character
+author, are now responsible for resetting these.** Again, refer to Raiden's buffering.zss for more information on
+resetting alike commands. You should ideally only reset alike commands with 3 or more elements. A lot of Capcom and to an
+extent SNK do this. Observe your game for proper behavior. CvS2 for sure does this, though.
+
+TurtleWax 2.0 uses Capcom vs. SNK 2 3-star defaults for the Capcom commands.
+
+TurtleWax 2.0 is officially Raspberry Pi 4 performant!
 
 	;---------------------------------------------------------------------------
 	; Supers
@@ -249,6 +297,19 @@ To prevent any issues, please make sure this file is not in your mods folder whe
     value = Map(tw_Buffer_ChangeStateNo)-cond(Map(h_Dn),200,400)    ; or -1, depending on your use case
     ignorehitpause = 1
 
+    ;---------------------------------------------------------------------------
+    ; State Correction
+    ; This is to prevent basics from coming out after throws.
+    [State -1, MapSet]
+    type = MapSet
+    trigger1 = stateNo = [800,899]
+    trigger1 = Time < 3 && (map(tw_Buffer_ChangeStateNo) = [200,799])
+    trigger2 = stateno = 195
+    trigger2 = !ctrl && map(tw_Buffer_ChangeStateNo) = 195
+    map = "tw_Buffer_ChangeStateNo"
+    value = -1
+    ignorehitpause = 1
+
 	;---------------------------------------------------------------------------
 	; Basics
 	[State -1, Basics]
@@ -258,12 +319,25 @@ To prevent any issues, please make sure this file is not in your mods folder whe
 	triggerall = !IsHelper
 	triggerall = roundstate = 2
 	triggerall = StateNo != [800,899]
+    triggerall = MoveType != H
 	trigger1 = Map(tw_Buffer_ChangeStateNo) = [200,299]
 	trigger2 = Map(tw_Buffer_ChangeStateNo) = [400,499]
 	trigger3 = Map(tw_Buffer_ChangeStateNo) = [600,699]
 	ignorehitpause = 0
 
+## Debugging
+You can reload your characters' `buffering.zss` files the same as you always would (`Shift+F4`). This can be really helpful for debugging.
+
 ## History
+### Version 2.0
+* Changed to ZSS implementation.
+* Motion map names have been moved to `turtlewax_common.zss` and now prefixed with `tw_`. Base directions and buttons are unchanged.
+* Now Raspberry Pi 4 compliant.
+
+### Version 1.6
+* Fixed default charge commands.
+* Code optimization
+
 ### Version 1.5
 * Added input_types array to all move definitions so that the input type can be defined for each motion.
 * tt can now be specified as a single value, or a table of values. Each value in the table must either be
@@ -284,8 +358,9 @@ To prevent any issues, please make sure this file is not in your mods folder whe
 Initial release
 
 ### Special Thanks
-* Kamekaze - Ported a lot of the original Deep Buffering code to Lua
-* Jesuszilla - Original author of Deep Buffering
+* Kamekaze - Ported a lot of the original Deep Buffering code to Lua and re-porting version 1.6 fixes to ZSS, testing, implementation.
+* Jesuszilla - Original author of Deep Buffering, testing, advice & implementation.
 * TTTTTsd - Testing
-* Vans - Original Tiny Buffering system which formed the basis for all good buffering systems in M.U.G.E.N
+* Vans - Original Tiny Buffering system which formed the basis for all good buffering systems in M.U.G.E.N and its derivatives.
 * extravagant - Testing
+* Phantom.of.the.Server - Testing

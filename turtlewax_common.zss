@@ -1,0 +1,3431 @@
+#This file contains common commands used by 
+#turtlewax.zss 
+
+#==|Keep scrolling to get to the stuff you can touch|===
+[Function checkRotation_tw() val]
+
+
+#only store recent completed 720
+if ((floor(Map(i62486248)/Const(Bit6)) = 8 &&
+	floor(Map(i24862486)/Const(Bit6)) < 8 &&
+	floor(Map(i48624862)/Const(Bit6)) < 8 &&
+	floor(Map(i86248624)/Const(Bit6)) < 8) ||
+	(floor(Map(i68426842)/Const(Bit6)) = 8  &&
+	floor(Map(i84268426)/Const(Bit6)) < 8  &&
+	floor(Map(i42684268)/Const(Bit6)) < 8  &&
+	floor(Map(i26842684)/Const(Bit6)) < 8))
+{
+#store any 720
+map(rot2):=6;
+}
+
+if ((floor(Map(i24862486)/Const(Bit6)) < 8 &&
+	floor(Map(i48624862)/Const(Bit6)) < 8  &&
+	floor(Map(i86248624)/Const(Bit6)) < 8  &&
+	floor(Map(i62486248)/Const(Bit6)) < 8) ||
+	(floor(Map(i26842684)/Const(Bit6)) = 8 &&
+	floor(Map(i68426842)/Const(Bit6)) < 8  &&
+	floor(Map(i84268426)/Const(Bit6)) < 8  &&
+	floor(Map(i42684268)/Const(Bit6)) < 8))
+{
+#store any 720
+map(rot2):=2;
+}
+
+if ((floor(Map(i48624862)/Const(Bit6)) = 8 &&
+	floor(Map(i86248624)/Const(Bit6)) < 8  &&
+	floor(Map(i62486248)/Const(Bit6)) < 8  &&
+	floor(Map(i24862486)/Const(Bit6)) < 8) ||
+	(floor(Map(i42684268)/Const(Bit6)) = 8 &&
+	floor(Map(i26842684)/Const(Bit6)) < 8  &&
+	floor(Map(i68426842)/Const(Bit6)) < 8  &&
+	floor(Map(i84268426)/Const(Bit6)) < 8))
+{
+#store any 720
+map(rot2):=4;
+}
+
+if ((floor(Map(i86248624)/Const(Bit6)) = 8  &&
+	floor(Map(i62486248)/Const(Bit6)) < 8  &&
+	floor(Map(i24862486)/Const(Bit6)) < 8  &&
+	floor(Map(i48624862)/Const(Bit6)) < 8) ||
+	(floor(Map(i84268426)/Const(Bit6)) = 8  &&
+	floor(Map(i42684268)/Const(Bit6)) < 8  &&
+	floor(Map(i26842684)/Const(Bit6)) < 8  &&
+	floor(Map(i68426842)/Const(Bit6)) < 8))
+{
+#store any 720
+map(rot2):=8;
+}
+
+if Map(rot2) =6
+{
+#overwrite this shit
+
+root,map(tw_f720):= floor(Map(i62486248)/Const(Bit6)) = 8;
+root,map(tw_r720):= floor(Map(i68426842)/Const(Bit6)) = 8;
+}
+
+if  Map(rot2) =2
+{
+#overwrite this shit
+
+
+root,map(tw_f720):= floor(Map(i24862486)/Const(Bit6)) = 8;
+root,map(tw_r720):= floor(Map(i26842684)/Const(Bit6)) = 8;
+}
+
+if  Map(rot2) =4
+{
+#overwrite this shit
+
+
+root,map(tw_f720):= floor(Map(i48624862)/Const(Bit6)) = 8;
+root,map(tw_r720):= floor(Map(i42684268)/Const(Bit6)) = 8;
+
+}
+
+if  Map(rot2) =8
+{
+#overwrite this shit
+
+
+root,map(tw_f720):= floor(Map(i86248624)/Const(Bit6)) = 8;
+root,map(tw_r720):= floor(Map(i84268426)/Const(Bit6)) = 8;
+}
+
+
+#only store recent completed 360
+if ((floor(Map(i6248)/Const(Bit6)) = 4 &&
+	floor(Map(i2486)/Const(Bit6)) < 4  &&
+	floor(Map(i4862)/Const(Bit6)) < 4  &&
+	floor(Map(i8624)/Const(Bit6)) < 4) ||
+	(floor(Map(i6842)/Const(Bit6)) = 4 &&
+	floor(Map(i8426)/Const(Bit8)) < 4  &&
+	floor(Map(i4268)/Const(Bit8)) < 4  &&
+	floor(Map(i2684)/Const(Bit8)) < 4))
+{
+#store any 360
+map(rot):=6;
+}
+
+if ((floor(Map(i2486)/Const(Bit6)) = 4 &&
+	floor(Map(i4862)/Const(Bit6)) < 4  &&
+	floor(Map(i8624)/Const(Bit6)) < 4  &&
+	floor(Map(i6248)/Const(Bit6)) < 4) ||
+	floor((Map(i2684)/Const(Bit6)) = 4 &&
+	floor(Map(i6842)/Const(Bit6)) < 4  &&
+	floor(Map(i8426)/Const(Bit6)) < 4  &&
+	floor(Map(i4268)/Const(Bit6)) < 4))
+{
+#store any 360
+map(rot):=2;
+}
+
+if ((floor(Map(i4862)/Const(Bit6)) = 4  &&
+	floor(Map(i8624)/Const(Bit6)) < 4  &&
+	floor(Map(i6248)/Const(Bit6)) < 4  &&
+	floor(Map(i2486)/Const(Bit6)) < 4) ||
+	(floor(Map(i4268)/Const(Bit6)) = 4 &&
+	floor(Map(i2684)/Const(Bit6)) < 4  &&
+	floor(Map(i6842)/Const(Bit6)) < 4  &&
+	floor(Map(i8426)/Const(Bit6)) < 4))
+{
+#store any 360
+map(rot):=4;
+}
+
+if ((floor(Map(i8624)/Const(Bit6)) = 4 &&
+	floor(Map(i6248)/Const(Bit6)) < 4  &&
+	floor(Map(i2486)/Const(Bit6)) < 4  &&
+	floor(Map(i4862)/Const(Bit6)) < 4) ||
+	(floor(Map(i8426)/Const(Bit6)) = 4 &&
+	floor(Map(i4268)/Const(Bit6)) < 4  &&
+	floor(Map(i2684)/Const(Bit6)) < 4  &&
+	floor(Map(i6842)/Const(Bit6)) < 4))
+{
+#store any 360
+map(rot):=8;
+}
+ 
+
+if Map(rot) =6
+{
+
+
+root,Map(tw_f360):= floor(Map(i6248)/Const(Bit6)) = 4;
+root,Map(tw_r360):= floor(Map(i6842)/Const(Bit6)) = 4;
+}
+
+if  Map(rot) =2
+{
+
+
+root,Map(tw_f360):= floor(Map(i2486)/Const(Bit6)) = 4;
+root,Map(tw_r360):= floor(Map(i2684)/Const(Bit6)) = 4;
+}
+
+if  Map(rot) =4
+{
+
+
+root,Map(tw_f360):= floor(Map(i4862)/Const(Bit6)) = 4;
+root,Map(tw_r360):= floor(Map(i4268)/Const(Bit6)) = 4;
+
+}
+
+if  Map(rot) =8
+{
+
+
+root,Map(tw_f360):= floor(Map(i8624)/Const(Bit6)) = 4;
+root,Map(tw_r360):= floor(Map(i8426)/Const(Bit6)) = 4;
+}
+
+#---------------------------------
+[function decrement_inputs()]
+let basebit = 31;
+
+ if Map(i2)
+{
+#D Dec
+map(i2):= ((Map(i2)^(Map(i2)&$basebit)) | ((Map(i2)&$basebit) - 1));
+}
+
+
+
+ if Map(l66)
+{
+#FF Dec
+map(l66):= ((Map(l66)^(Map(l66)&$basebit)) | ((Map(l66)&$basebit) - 1));
+}
+
+ if Map(l44)
+{
+#BB Dec
+map(l44):= ((Map(l44)^(Map(l44)&$basebit)) | ((Map(l44)&$basebit) - 1));
+}
+
+if Map(i62486248)
+{
+#62486248 Dec
+Map(i62486248):= ((Map(i62486248)^(Map(i62486248)&$basebit)) | ((Map(i62486248)&$basebit) - 1));
+}
+if Map(i24862486)
+{
+#i24862486 Dec
+Map(i24862486):= ((Map(i24862486)^(Map(i24862486)&$basebit)) | ((Map(i24862486)&$basebit) - 1));
+}
+if Map(i48624862)
+{
+#i48624862 Dec
+map(i48624862):= ((Map(i48624862)^(Map(i48624862)&$basebit)) | ((Map(i48624862)&$basebit) - 1));
+}
+if Map(i86248624)
+{
+#i86248624 Dec
+map(i86248624):= ((Map(i86248624)^(Map(i86248624)&$basebit)) | ((Map(i86248624)&$basebit) - 1));
+}
+
+
+if(Map(i42684268)> 0)
+{
+#i42684268 Dec
+map(i42684268):= ((Map(i42684268)^(Map(i42684268)&$basebit)) | ((Map(i42684268)&$basebit) - 1));
+}
+if(Map(i26842684)> 0)
+{
+#i26842684 Dec
+map(i26842684):= ((Map(i26842684)^(Map(i26842684)&$basebit)) | ((Map(i26842684)&$basebit) - 1));
+}
+if(Map(i68426842)> 0)
+{
+#i68426842 Dec
+map(i68426842):= ((Map(i68426842)^(Map(i68426842)&$basebit)) | ((Map(i68426842)&$basebit) - 1));
+}
+if(Map(i84268426)> 0)
+{
+#i84268426 Dec
+map(i84268426):= ((Map(i84268426)^(Map(i84268426)&$basebit)) | ((Map(i84268426)&$basebit) - 1));
+}
+
+if(Map(i632146)> 0)
+{
+#632146 Dec
+map(i632146):= ((Map(i632146)^(Map(i632146)&$basebit)) | ((Map(i632146)&$basebit) - 1));
+}
+if(Map(i412364)> 0)
+{
+#412364 Dec
+map(i412364):= ((Map(i412364)^(Map(i412364)&$basebit)) | ((Map(i412364)&$basebit) - 1));
+}
+if(Map(i23623)> 0)
+{
+#23623 Dec
+map(i23623):= ((Map(i23623)^(Map(i23623)&$basebit)) | ((Map(i23623)&$basebit) - 1));
+}
+
+if(Map(i21421)> 0)
+{
+#21421 Dec
+map(i21421):= ((Map(i21421)^(Map(i21421)&$basebit)) | ((Map(i21421)&$basebit) - 1));
+}
+
+if(Map(i236236)> 0)
+{
+#236236 Dec
+map(i236236):= ((Map(i236236)^(Map(i236236)&$basebit)) | ((Map(i236236)&$basebit) - 1));
+}
+if(Map(i214214)> 0)
+{
+#236236 Dec
+map(i214214):= ((Map(i214214)^(Map(i214214)&$basebit)) | ((Map(i214214)&$basebit) - 1));
+}
+if(Map(i4123641236)> 0)
+{
+#i4123641236 Dec
+map(i4123641236):= ((Map(i4123641236)^(Map(i4123641236)&$basebit)) | ((Map(i4123641236)&$basebit) - 1));
+}
+
+if(Map(i6321463214)> 0)
+{
+#i6321463214 Dec
+map(i6321463214):= ((Map(i6321463214)^(Map(i6321463214)&$basebit)) | ((Map(i6321463214)&$basebit) - 1));
+}
+
+if(Map(i2363214)> 0)
+{
+#i2363214 Dec
+map(i2363214):= ((Map(i2363214)^(Map(i2363214)&$basebit)) | ((Map(i2363214)&$basebit) - 1));
+}
+
+if(Map(i2141236)> 0)
+{
+#i2141236 Dec
+map(i2141236):= ((Map(i2141236)^(Map(i2141236)&$basebit)) | ((Map(i2141236)&$basebit) - 1));
+}
+
+if(Map(i641236)> 0)
+{
+#641236 Dec
+map(i641236):= ((Map(i641236)^(Map(i641236)&$basebit)) | ((Map(i641236)&$basebit) - 1));
+}
+
+if(Map(i463214)> 0)
+{
+#463214 Dec
+map(i463214):= ((Map(i463214)^(Map(i463214)&$basebit)) | ((Map(i463214)&$basebit) - 1));
+}
+
+
+
+if(Map(xx6az)> 0)
+{
+#xx6az Dec
+map(xx6az):= ((Map(xx6az)^(Map(xx6az)&$basebit)) | ((Map(xx6az)&$basebit) - 1));
+}
+
+if(Map(xx4az)> 0)
+{
+#xx4az Dec
+map(xx4az):= ((Map(xx4az)^(Map(xx4az)&$basebit)) | ((Map(xx4az)&$basebit) - 1));
+}
+
+if(Map(xx6ay)> 0)
+{
+#xx6ay Dec
+map(xx6ay):= ((Map(xx6ay)^(Map(xx6ay)&$basebit)) | ((Map(xx6ay)&$basebit) - 1));
+}
+
+if(Map(xx4az)> 0)
+{
+#xx4ay Dec
+map(xx4ay):= ((Map(xx4ay)^(Map(xx4ay)&$basebit)) | ((Map(xx4ay)&$basebit) - 1));
+}
+
+if(Map(r_4646)> 0)
+{
+#xx6ay Dec
+map(r_4646):= ((Map(r_4646)^(Map(r_4646)&$basebit)) | ((Map(r_4646)&$basebit) - 1));
+}
+
+if(Map(r_6464)> 0)
+{
+#xx4ay Dec
+map(r_6464):= ((Map(r_6464)^(Map(r_6464)&$basebit)) | ((Map(r_6464)&$basebit) - 1));
+}
+
+if(Map(r_1319)> 0)
+{
+#xx6ay Dec
+map(r_1319):= ((Map(r_1319)^(Map(r_1319)&$basebit)) | ((Map(r_1319)&$basebit) - 1));
+}
+
+if(Map(r_3137)> 0)
+{
+#xx4ay Dec
+map(r_3137):= ((Map(r_3137)^(Map(r_3137)&$basebit)) | ((Map(r_3137)&$basebit) - 1));
+}
+
+if(Map(i1632143)> 0)
+{
+#i1632143 Dec
+map(i1632143):= ((Map(i1632143)^(Map(i1632143)&$basebit)) | ((Map(i1632143)&$basebit) - 1));
+}
+
+if(Map(i3412361)> 0)
+{
+#i3412361 Dec
+map(i3412361):= ((Map(i3412361)^(Map(i3412361)&$basebit)) | ((Map(i3412361)&$basebit) - 1));
+}
+
+#------------------- SPECIALS -------------------------------------------------#
+
+if(Map(i6248)> 0)
+{
+#6248 Dec
+map(i6248):= ((Map(i6248)^(Map(i6248)&$basebit)) | ((Map(i6248)&$basebit) - 1));
+}
+
+if(Map(i2486)> 0)
+{
+#2486 Dec
+map(i2486):= ((Map(i2486)^(Map(i2486)&$basebit)) | ((Map(i2486)&$basebit) - 1));
+}
+if(Map(i4862)> 0)
+{
+#4862 Dec
+map(i4862):= ((Map(i4862)^(Map(i4862)&$basebit)) | ((Map(i4862)&$basebit) - 1));
+}
+if(Map(i8624)> 0)
+{
+#8624 Dec
+map(i8624):= ((Map(i8624)^(Map(i8624)&$basebit)) | ((Map(i8624)&$basebit) - 1));
+}
+
+if(Map(i4268)> 0)
+{
+#6248 Dec
+map(i4268):= ((Map(i4268)^(Map(i4268)&$basebit)) | ((Map(i4268)&$basebit) - 1));
+}
+
+if(Map(i2684)> 0)
+{
+#2486 Dec
+map(i2684):= ((Map(i2684)^(Map(i2684)&$basebit)) | ((Map(i2684)&$basebit) - 1));
+}
+if(Map(i6842)> 0)
+{
+#4862 Dec
+map(i6842):= ((Map(i6842)^(Map(i6842)&$basebit)) | ((Map(i6842)&$basebit) - 1));
+}
+if(Map(i8426)> 0)
+{
+#8426 Dec
+map(i8426):= ((Map(i8426)^(Map(i8426)&$basebit)) | ((Map(i8426)&$basebit) - 1));
+}
+
+
+if(Map(i412)> 0)
+{
+#412 Dec
+map(i412):= ((Map(i412)^(Map(i412)&$basebit)) | ((Map(i412)&$basebit) - 1));
+}
+ 
+if(Map(i632)> 0)
+{
+#632 Dec
+map(i632):= ((Map(i632)^(Map(i632)&$basebit)) | ((Map(i632)&$basebit) - 1));
+}
+
+if(Map(i623)> 0)
+{
+#DP Dec
+map(i623):= ((Map(i623)^(Map(i623)&$basebit)) | ((Map(i623)&$basebit) - 1));
+}
+
+
+ if(Map(i421)> 0)
+{
+#rDP Dec
+map(i421):= ((Map(i421)^(Map(i421)&$basebit)) | ((Map(i421)&$basebit) - 1));
+}
+
+if(Map(i263)> 0)
+{
+#DP Dec
+map(i263):= ((Map(i263)^(Map(i263)&$basebit)) | ((Map(i263)&$basebit) - 1));
+}
+
+ if(Map(i241)> 0)
+{
+#rDP Dec
+map(i241):= ((Map(i241)^(Map(i241)&$basebit)) | ((Map(i241)&$basebit) - 1));
+}
+
+ if(Map(i236)> 0)
+{
+#QCF Dec
+map(i236):= ((Map(i236)^(Map(i236)&$basebit)) | ((Map(i236)&$basebit) - 1));
+}
+
+ if(Map(i214)> 0)
+{
+#QCB Dec
+map(i214):= ((Map(i214)^(Map(i214)&$basebit)) | ((Map(i214)&$basebit) - 1));
+}
+
+ if(Map(i426)> 0)
+{
+#HCF Dec
+map(i426):= ((Map(i426)^(Map(i426)&$basebit)) | ((Map(i426)&$basebit) - 1));
+}
+
+ if(Map(i41236)> 0)
+{
+#sHCF Dec
+map(i41236):= ((Map(i41236)^(Map(i41236)&$basebit)) | ((Map(i41236)&$basebit) - 1));
+}
+
+ if(Map(i624)> 0)
+{
+#HCB Dec
+map(i624):= ((Map(i624)^(Map(i624)&$basebit)) | ((Map(i624)&$basebit) - 1));
+}
+
+ if(Map(i63214)> 0)
+{
+#sHCB Dec
+map(i63214):= ((Map(i63214)^(Map(i63214)&$basebit)) | ((Map(i63214)&$basebit) - 1));
+}
+
+ if(Map(i12369)> 0)
+{
+#TGK Dec
+map(i12369):= ((Map(i12369)^(Map(i12369)&$basebit)) | ((Map(i12369)&$basebit) - 1));
+}
+
+ if(Map(i32147)> 0)
+{
+#RTGK Dec
+map(i32147):= ((Map(i32147)^(Map(i32147)&$basebit)) | ((Map(i32147)&$basebit) - 1));
+}
+ if(Map(t46)> 0)
+{
+#BF quick Dec
+map(t46):= ((Map(t46)^(Map(t46)&$basebit)) | ((Map(t46)&$basebit) - 1));
+}
+
+ if(Map(t64)> 0)
+{
+#FB quick Dec
+map(t64):= ((Map(t64)^(Map(t64)&$basebit)) | ((Map(t64)&$basebit) - 1));
+}
+
+ if(Map(i46)> 0)
+{
+#BF Dec
+map(i46):= ((Map(i46)^(Map(i46)&$basebit)) | ((Map(i46)&$basebit) - 1));
+}
+
+ if(Map(i64)> 0)
+{
+#FB Dec
+map(i64):= ((Map(i64)^(Map(i64)&$basebit)) | ((Map(i64)&$basebit) - 1));
+}
+
+ if(Map(i646)> 0)
+{
+#FBF Dec
+map(i646):= ((Map(i646)^(Map(i646)&$basebit)) | ((Map(i646)&$basebit) - 1));
+}
+
+ if(Map(i464)> 0)
+{
+#BFB Dec
+map(i464):= ((Map(i464)^(Map(i464)&$basebit)) | ((Map(i464)&$basebit) - 1));
+}
+
+ if(Map(i22)> 0)
+{
+#DD Dec
+map(i22):= ((Map(i22)^(Map(i22)&$basebit)) | ((Map(i22)&$basebit) - 1));
+}
+ if(Map(i28)> 0)
+{
+#DU Dec
+map(i28):= ((Map(i28)^(Map(i28)&$basebit)) | ((Map(i28)&$basebit) - 1));
+}
+
+
+
+
+[Function checkRun(snk)]
+#do this prevent doubled detection on the same frame, which can happen because i fucked up somewhere probably
+let basedecbit=31;
+	let dt1 = root,Map(tw_Dash_input1_BufferTime);
+	let dt2 = root,Map(tw_Dash_input2_BufferTime);
+
+ if(Map(tw_i66)> 0)
+{
+#Ff Dec
+map(tw_i66):= ((Map(tw_i66)^(Map(tw_i66)&$basedecbit)) | ((Map(tw_i66)&$basedecbit) - 1));
+}
+
+ if(Map(tw_i44)> 0)
+{
+#BB Dec
+map(tw_i44):= ((Map(tw_i44)^(Map(tw_i44)&$basedecbit)) | ((Map(tw_i44)&$basedecbit) - 1));
+}
+	
+		for i= 0; 1;1 {
+		if $i=0{
+
+    	if  !map(tw_i66) && (map(r_dir)&15)=8   {
+			
+			map(tw_i66):=cond($snk,30,$dt1 )+ const(Bit6);
+			
+			}
+				if  !map(tw_i44)&& (map(r_dir)&15)=4 {
+			map(tw_i44):=cond($snk,30,$dt1) + const(Bit6);
+			}
+			}	
+			else{
+				
+		if  floor(map(tw_i66)/const(Bit6))=1&& (map(p_dir)&240)=128   {
+			map(tw_i66):=$dt2 + const(Bit6)*2;
+			}
+			if  map(tw_i44) && (map(p_dir)&240)=64 {
+			map(tw_i44):=$dt2 + const(Bit6)*2;
+			}
+				
+		
+		}
+	}
+		
+
+	
+#reset if anything else
+	 if (map(p_dir)&32)>0 || (map(p_dir)&16)>0  {
+		map(tw_i66):=0;
+		map(tw_i44):=0;
+	}
+
+#FF - F,F
+	 if( Map(tw_i66) && ((Map(tw_i66)&$basedecbit) = 0 ))
+	{
+	Map(tw_i66):= 0;
+	}
+
+#BB - B,B
+	 if( Map(tw_i44) && ((Map(tw_i44)&$basedecbit) = 0 ))
+	{
+	Map(tw_i44):=0;
+	}
+
+
+
+#reset fwd
+ if  Map(tw_i66)  && (map(p_dir)&64)>0 {
+map(tw_i66):=0;
+}
+
+# reset back
+ if  Map(tw_i44)  && (map(p_dir)&128)>0 {
+map(tw_i44):=0;
+}
+
+root,Map(tw_FF):=floor(map(tw_i66)/const(Bit6))=2;
+root,Map(tw_BB):=floor(map(tw_i44)/const(Bit6))=2;
+
+
+	
+[Statedef -4]
+#====|END OF THINGS YOU CAN COPY|====================
+#DO NOT TOUCH ANY BELOW UNLESS YOU KNOW EXACTLY WHAT YOU'RE DOING!
+
+
+if ishelper(const(ih)) {
+let up = Const(Bit5);
+let down = Const(Bit6);
+let left = Const(Bit7);
+let right = Const(Bit8);
+
+let release_Up = Const(Bit1);
+let release_Down = Const(Bit2);
+let release_Left = Const(Bit3);
+let release_Right = Const(Bit4);
+
+
+
+#declare our buttons
+let x = Const(Bit10);
+let y = Const(Bit11);
+let z = Const(Bit12);
+let w = Const(Bit13);
+let s = Const(Bit14);
+let a = Const(Bit15);
+let b = Const(Bit16);
+let c = Const(Bit17);
+let d = Const(Bit18);
+let release_x = Const(Bit1);
+let release_y = Const(Bit2);
+let release_z = Const(Bit3);
+let release_w = Const(Bit4);
+let release_Start = Const(Bit5);
+let release_a = Const(Bit6);
+let release_b = Const(Bit7);
+let release_c = Const(Bit8);
+let release_d = Const(Bit9);
+
+let r_AllBits_dir  =  $release_Up+$release_Down+$release_Left+$release_Right;
+
+let r_AllBits_att =  $release_x+$release_y+$release_z+$release_a+$release_b+$release_c;
+let r_PBits =  $release_x+$release_y+$release_z;
+let r_KBits =  $release_a+$release_b+$release_c;
+let p_AllBits_att = $x+$y+$z+$a+$b+$c;
+let p_PBits_att = $x+$y+$z;
+let p_KBits_att = $a+$b+$c;
+let p_AllBits_dir =  $up+$down+$left+$right;
+let snk=root,Map(tw_Buffer_Snk)=1;
+
+#These represent how many frames you have to do the next part of an input
+#F||example, if you start with D a given motion will begin their countdown based 
+#on the values defined below, f||"qc" that is 12 frames of time you have to input DF
+#then you have 12 additional frames to input F to complete the QCF motion.
+#ONLY CHANGE THESE IF YOU UNDERSTAND THIS
+map(sntimer):=40;
+
+if root,map(tw_qc)=0
+{root,map(tw_qc):=9;}
+if root,map(tw_qc2)=0
+{root,map(tw_qc2):=12;}
+
+let b720 = cond($snk,15,9);			#Timing f||720 input
+let qd   = cond($snk,15,root,map(tw_qc));		#timing f||QCFQC and its inverse
+let qc2  = cond($snk,15,root,map(tw_qc2));	#timing f||QCFx2 and its inverse
+
+let fh2  = cond($snk,15,9);			#timing f||F,HCF and its inverse
+let qh1  = cond($snk,15,9);			#timing f||QCFHCB and its inverse
+let hcb2 = cond($snk,15,9);			#timing f||HCBx2 and its inverse
+let sgs1 = cond($snk,15,9);			#timing f||any SGS 
+let bfb  = cond($snk,15,9);			#timing f||B,F,B,F and its inverse
+let ptz  = cond($snk,15,9);			#timing f||pretzel motion and its inverse
+let b360 = cond($snk,15,9);			#timing f||any 360 input and its inverse
+let CBT  = cond($snk,15,9);			#timing f||B,F and its inverse
+let TBT  = cond($snk,15,6);			#timing f||the quicker B,F and its inverse
+let BFT  = cond($snk,15,9);			#timing f||F,B,F and its inverse
+let hc   = cond($snk,15,9);			#timing f||HCB and its inverse
+let tg   = cond($snk,15,9);			#timing f||TGK and its inverse
+let qd   = cond($snk,15,9);			#timing f||F,DF,D and its inverse
+let dp   = cond($snk,15,9);			#timing f||dp and its inverse
+let mb   = cond($snk,15,9);			#timing f||midnight bliss motion (D,F,DF) and its inverse
+let qc   = cond($snk,15,root,map(tw_qc));			#timing f||QCF and its inverse
+let cd   = cond($snk,15,9);			#timing f||D,U
+let lf   = cond($snk,15,15);			#timing f||the special version of F,F not to be confused with the run/dash input!
+let dd   = cond($snk,15,9);			#timing f||D,D
+let jkf  = cond($snk,15,9);			#timing f||DB,DF,DB,UF
+let iLag = 0;			#additional input lag (in frames)
+#=======================================#
+#Command Buffering File based on (Capcom VS. SNK 2) 1.8                        #
+#Original system f||Capcom VS. SNK: Collision Course                          #
+#by Vans                                                                       #
+#Modifications by Jesuszilla f||Command interpretation                        #
+#Adaptation by Kamekaze f||Ikemen GO, updates by Jesuszilla f||improved bit  #
+#usage                                                                         #
+#=======================================#
+#Introduction:
+#This is the 15-tick / 2-tick based command buffering system. Coded to be Capcom
+#compliant following Capcom vs. SNK 2 as a guide.
+#
+#The helper is capable of providing buffering as well as PERFECT reversed
+#commands in addition to negative edge checking f||command var iables.
+#
+#Any and all editions should be done in the BUFFER DEFINITION section.
+#
+#Unless you plan to modify the whole system, do not touch the mapnames, ever.
+
+
+
+#----------------------------[BUFFER DECREASE]---------------------------------#
+# The button and cardinal direction buffers are special in that they do not use
+# normal integer subtraction f||each buffer. That is because it would make the
+# code ugly and unreadable. Thus, it uses bitwise shifting through division due
+# to I.K.E.M.E.N. GO's lack of bitwise shift operators.
+#
+# Think of each button and direction as an enumeration flag. When initializing
+# (when a button is first pressed), it initializes the most significant bits.
+# The buffer decreases by shifting the entire array down to the next size of
+# bits. There are 7 buttons, so 7 bits are used. Therefore, up to 4 ticks of
+# button buffering can be stored in one var in this architecture. Directions
+# only require 4 bits because there are only 4 directions. Therefore, the
+# direction arrays can store up to 8 ticks of buffering.
+#
+# In either case, however, the Capcom vs. SNK 2 buffering system used here only
+# uses 2 ticks of buffering.
+#
+# suppose a user presses LP and LK at the same time. The basic bit array in this
+# structure would look as follows:
+#
+# 0010001
+#
+# Going from least significant bit (the rightmost bit) to the most significant
+# bit (the leftmost bit), the bits that are filled f||LP and LK are the 1st
+# and 5th bits, respectively.
+#
+# so f||the buffering system defined in this file, the variable would actually
+# look as follows f||the first tick. Recall that I.K.E.M.E.N. GO int variables are
+# 32 bits:
+#
+# 00000000000000000000100010000000
+#
+# The next tick, this array of 7 bits would be shifted down to the next 7 bits.
+# In I.K.E.M.E.N. GO, this is accomplished by dividing the number by 128. Thus, the
+# bits in the variable would look as follows on the second tick:
+#
+# 00000000000000000000000000010001
+#
+# 00000000000000000100000000000000
+# 00000000000000000100000000000000
+#
+# This algorithm is the same f||every variable used f||buffering. However,
+# each variable used in this system serves a specific purpose:
+#
+# Map(p_att) - Used to signify button presses.
+# Map(h_dir) - Used to signify button holds.
+# Map(r_att) - Used to signify button releases.
+# Map(p_dir) - Used to signify direction presses.
+# Map(h_dir) - Used to signify direction holds.
+# Map(r_dir) - Used to signify direction releases.
+#
+# A command f||Map(p_att) ||Map(p_dir) is like a raw button, such as x ||F. Similarly,
+# Map(h_att) and Map(h_dir) can be used f||hold behavior, like /x ||/F. Finally, Map(r_att)
+# and Map(r_dir) are used f||release behavior, like ~x ||~F. These are all
+# necessary in order to overcome I.K.E.M.E.N. GO's limitations to provide a more solid
+# command system.
+#
+# If you don't understand this explanation, that is OK. CNS may be your first,
+# ||only, computer language, and this system is built upon years of expertise
+# in computer science. You can read up on bitwise operations here. I hope these
+# links survive time!
+#
+# English:
+# http://mugenguild.com/forum/topics/bitwise-variables-demystified-137076.0.html
+# https://en.wikipedia.org/wiki/Bitwise_operation
+#
+# 日本語:
+# https://ja.wikipedia.org/wiki/%E3%83%93%E3%83%83%E3%83%88%E6%BC%94%E7%AE%97
+#
+
+
+#DIRECTIONAL:
+#var(i22) = DD
+#Map(i66) = FF
+#Map(i44) = BB
+##endregion
+
+#----------------------------------[COMMANDS]----------------------------------#
+#Map(i236)  = QCF
+#Map(i623)  = DP
+#Map(i421)  = rDP
+#Map(i214)  = QCB
+#Map(i41236)  = HCB
+#Map(i63214)  = HCF
+#Map(i46)  = CB,F
+#Map(i64)  = CF,B
+#Map(i28)  = CD,U
+#Map(i236236)  = QCFx2
+#Map(i214214)  = QCBx2
+
+#------------------- SUPERS ---------------------------------------------------#
+ #if root,hitpausetime=0
+if !$snk{
+call decrement_inputs();
+}
+
+
+
+
+##region cvs2_buffer_init.vns
+#--------------------------[BUFFER DEFINITION]---------------------------------#
+
+#----------------------------[BUTTON BUFFER]-----------------------------------#
+#Leave the BUTTON BUFFER alone f||compatibility.
+#BUTTON:
+#Map(p_att) = PRESS
+#Map(h_dir) = HOLD
+#Map(r_att) = RELEASE
+#Final tick (pattern repeats going up, can store 4 ticks):
+# 1 - LP
+# 2 - MP
+# 4 - HP
+# 8 - Start
+#16 - LK
+#32 - MK
+#64 - HK
+#DIRECTIONAL:
+#Map(p_dir) = PRESS
+#Map(h_dir) = HOLD
+#Map(r_dir) = RELEASE
+#Final tick (pattern repeats going up, can store 8 ticks):
+# 1 - U
+# 2 - D
+# 4 - B
+# 8 - F
+
+##endregion
+
+#----------------------------[COMMAND BUFFER]----------------------------------#
+#This is where ONLY THE NECESSARY commands are buffered. The buffer requires
+#both the regular command and its reversed equivalent.
+#
+#ALL COMMANDS SET HERE MUST ALSO BE PUT IN [Commands] UNDER [Buffer Decrease]
+#
+#One last thing, just like the CMD file, put the complicated commands on top.
+#Command checklist:
+#
+#Map(i214)         = QCF
+#Map(i623)         = DP
+#Map(i421)         = HCB
+#Map(i464)         = CB,F
+#Map(i646)         = CD,U
+#Map(i236236)         = QCFx2
+#Map(i214214)         = QCBx2
+#Map(i641236)-var(49) = 360
+
+#-----------------[SUPERS]-----------------
+
+
+
+
+
+#62486248 - F,D,B,U,F,D,B,U
+if map(i62486248t)
+{
+map(i62486248t):=map(i62486248t)-1;
+}
+	if (Map(i62486248) <= $b720+ const(bit6)  && (Map(h_dir)&$p_AllBits_dir) = $right)
+	{
+	#QCFx2Init 
+	Map(i62486248):= $b720 + const(bit6)*1;
+	map(i62486248t):=map(sntimer);
+	}
+	if(floor(Map(i62486248)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 2
+	Map(i62486248):= $b720 + const(bit6)*2;
+	}
+        if(floor(Map(i62486248)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 3
+	Map(i62486248):= $b720 + const(bit6)*3;
+	}
+        if(floor(Map(i62486248)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 4
+	Map(i62486248):= $b720 + const(bit6)*4;
+	}
+        if(floor(Map(i62486248)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 4
+	Map(i62486248):= $b720 + const(bit6)*5;
+	}
+         
+	if(floor(Map(i62486248)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 2
+	Map(i62486248):= $b720 + const(bit6)*6;
+	}
+	ignorehitpause if (floor(Map(i62486248)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 3
+	Map(i62486248):= $b720 + const(bit6)*7;
+	}
+	if(floor(Map(i62486248)/Const(Bit6)) = 7 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 4
+	Map(i62486248):= $b720-cond($snk, 0, 1) + const(bit6)*8;
+	}
+
+	ignorehitpause if( Map(i62486248) && (Map(i62486248)&15) = 0||!map(i62486248t)&&$snk)
+	{
+	
+	Map(i62486248):= 0;
+	}
+
+#i24862486 - D,B,U,F,D,B,U,F
+if map(i24862486t)
+{
+map(i24862486t):=map(i24862486t)-1;
+}
+	if (Map(i24862486) <= $b720+ const(bit6)  && (Map(h_dir)&$p_AllBits_dir) = $down)
+	{
+	#QCFx2Init 
+	Map(i24862486):= $b720 + const(bit6)*1;
+	map(i24862486t):=map(sntimer);
+	}
+	if(floor(Map(i24862486)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 2
+	Map(i24862486):= $b720 + const(bit6)*2;
+	}
+    	if(floor(Map(i24862486)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 3
+	Map(i24862486):= $b720 + const(bit6)*3;
+	}
+    	if(floor(Map(i24862486)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 4
+	Map(i24862486):= $b720 + const(bit6)*4;
+	}
+    	if(floor(Map(i24862486)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 4
+	Map(i24862486):= $b720 + const(bit6)*5;
+	} 
+    	if(floor(Map(i24862486)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 2
+	Map(i24862486):= $b720 + const(bit6)*6;
+	}
+        if(floor(Map(i24862486)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 3
+	Map(i24862486):= $b720 + const(bit6)*7;
+	}
+        if(floor(Map(i24862486)/Const(Bit6)) = 7 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 4
+	Map(i24862486):= $b720-cond($snk, 0, 1) + const(bit6)*8;
+	}
+
+	ignorehitpause if( Map(i24862486) && (Map(i24862486)&15) = 0||!map(i24862486t)&&$snk)
+	{
+	
+	Map(i24862486):= 0;
+	}
+
+#i48624862 - B,U,F,D,B,U,F,D
+if map(i48624862t)
+{
+map(i48624862t):=map(i48624862t)-1;
+}
+	if (Map(i48624862) <= $b720+ const(bit6)  && (Map(h_dir)&$p_AllBits_dir) = $left)
+	{
+	#QCFx2Init 
+	map(i48624862):= $b720 + const(bit6)*1;
+	map(i48624862t):=map(sntimer);
+	}
+	if(floor(Map(i48624862)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 2
+	map(i48624862):= $b720 + const(bit6)*2;
+	}
+	if(floor(Map(i48624862)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 3
+	map(i48624862):= $b720 + const(bit6)*3;
+	}
+	if(floor(Map(i48624862)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 4
+	map(i48624862):= $b720 + const(bit6)*4;
+	}
+        if(floor(Map(i48624862)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 4
+	map(i48624862):= $b720 + const(bit6)*5;
+	}
+         
+	if(floor(Map(i48624862)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 2
+	map(i48624862):= $b720 + const(bit6)*6;
+	}
+	if(floor(Map(i48624862)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 3
+	map(i48624862):= $b720 + const(bit6)*7;
+	}
+	if(floor(Map(i48624862)/Const(Bit6)) = 7 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 4
+	map(i48624862):= $b720-cond($snk, 0, 1) + const(bit6)*8;
+	}
+
+	ignorehitpause if( Map(i48624862) && (Map(i48624862)&15) = 0||!map(i48624862t)&&$snk)
+	{
+	
+	map(i48624862):= 0;
+	}
+
+#i86248624 - U,F,D,B,U,F,D,B
+if map(i86248624t)
+{
+map(i86248624t):=map(i86248624t)-1;
+}
+	if (Map(i86248624) <= $b720+ const(bit6)  && (Map(h_dir)&$p_AllBits_dir) = $up)
+	{
+	#QCFx2Init 
+	map(i86248624):= $b720 + const(bit6)*1;
+	map(i86248624t):=map(sntimer);
+	}
+	if(floor(Map(i86248624)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 2
+	map(i86248624):= $b720 + const(bit6)*2;
+	}
+	if(floor(Map(i86248624)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 3
+	map(i86248624):= $b720 + const(bit6)*3;
+	}
+	if(floor(Map(i86248624)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 4
+	map(i86248624):= $b720 + const(bit6)*4;
+	}
+        if(floor(Map(i86248624)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 4
+	map(i86248624):= $b720 + const(bit6)*5;
+	}
+         
+	if(floor(Map(i86248624)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 2
+	map(i86248624):= $b720 + const(bit6)*6;
+	}
+	if(floor(Map(i86248624)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 3
+	map(i86248624):= $b720 + const(bit6)*7;
+	}
+	if(floor(Map(i86248624)/Const(Bit6)) = 7 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 4
+	map(i86248624):= $b720-cond($snk, 0, 1) + const(bit6)*8;
+	}
+
+	ignorehitpause if( Map(i86248624) && (Map(i86248624)&15) = 0||!map(i86248624t)&&$snk)
+	{
+	
+	map(i86248624):= 0;
+	}
+
+
+#i42684268 - B,D,F,U,B,D,F,U
+if map(i42684268t)
+{
+map(i42684268t):=map(i42684268t)-1;
+}
+	if (Map(i42684268) <= $b720 + const(bit6) && (Map(h_dir)&$p_AllBits_dir) = $left)
+	{
+	#QCFx2Init 
+	map(i42684268):= $b720 + const(bit6)*1;
+	map(i42684268t):=map(sntimer);
+	}
+	if(floor(Map(i42684268)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 2
+	map(i42684268):= $b720 + const(bit6)*2;
+	}
+	if(floor(Map(i42684268)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 3
+	map(i42684268):= $b720 + const(bit6)*3;
+	}
+	if(floor(Map(i42684268)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 4
+	map(i42684268):= $b720 + const(bit6)*4;
+	}
+        if(floor(Map(i42684268)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 4
+	map(i42684268):= $b720 + const(bit6)*5;
+	}
+         
+	if(floor(Map(i42684268)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 2
+	map(i42684268):= $b720 + const(bit6)*6;
+	}
+	if(floor(Map(i42684268)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 3
+	map(i42684268):= $b720 + const(bit6)*7;
+	}
+	if(floor(Map(i42684268)/Const(Bit6)) = 7 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 4
+	map(i42684268):= $b720-cond($snk, 0, 1) + const(bit6)*8;
+	}
+
+	ignorehitpause if( Map(i42684268) && (Map(i42684268)&15) = 0||!map(i42684268t)&&$snk)
+	{
+	
+	map(i42684268):= 0;
+	}
+
+#i26842684 - D,F,U,B,D,F,U,B
+if map(i26842684t)
+{
+map(i26842684t):=map(i26842684t)-1;
+}
+	if (Map(i26842684) <= $b720 + const(bit6) && (Map(h_dir)&$p_AllBits_dir) = $down)
+	{
+	#QCFx2Init 
+	map(i26842684):= $b720 + const(bit6)*1;
+	map(i26842684t):=map(sntimer);
+	}
+	if(floor(Map(i26842684)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 2
+	map(i26842684):= $b720 + const(bit6)*2;
+	}
+	if(floor(Map(i26842684)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 3
+	map(i26842684):= $b720 + const(bit6)*3;
+	}
+	if(floor(Map(i26842684)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 4
+	map(i26842684):= $b720 + const(bit6)*4;
+	}
+        if(floor(Map(i26842684)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 4
+	map(i26842684):= $b720 + const(bit6)*5;
+	}
+         
+	if(floor(Map(i26842684)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 2
+	map(i26842684):= $b720 + const(bit6)*6;
+	}
+	if(floor(Map(i26842684)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 3
+	map(i26842684):= $b720 + const(bit6)*7;
+	}
+	if(floor(Map(i26842684)/Const(Bit6)) = 7 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 4
+	map(i26842684):= $b720-cond($snk, 0, 1) + const(bit6)*8;
+	}
+
+	ignorehitpause if( Map(i26842684) && (Map(i26842684)&15) = 0||!map(i26842684t)&&$snk)
+	{
+	
+	map(i26842684):= 0;
+	}
+
+#i68426842 - F,U,B,D,F,U,B,D
+if map(i68426842t)
+{
+map(i68426842t):=map(i68426842t)-1;
+}
+if (Map(i68426842) <= $b720+ const(bit6)  && (Map(h_dir)&$p_AllBits_dir) = $right)
+	{
+	#QCFx2Init 
+	map(i68426842):= $b720 + const(bit6)*1;
+	map(i68426842t):=map(sntimer);
+	}
+	if(floor(Map(i68426842)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 2
+	map(i68426842):= $b720 + const(bit6)*2;
+	}
+	if(floor(Map(i68426842)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 3
+	map(i68426842):= $b720 + const(bit6)*3;
+	}
+	if(floor(Map(i68426842)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 4
+	map(i68426842):= $b720 + const(bit6)*4;
+	}
+        if(floor(Map(i68426842)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 4
+	map(i68426842):= $b720 + const(bit6)*5;
+	}
+         
+	if(floor(Map(i68426842)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 2
+	map(i68426842):= $b720 + const(bit6)*6;
+	}
+	if(floor(Map(i68426842)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 3
+	map(i68426842):= $b720 + const(bit6)*7;
+	}
+	if(floor(Map(i68426842)/Const(Bit6)) = 7 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 4
+	map(i68426842):= $b720-cond($snk, 0, 1) + const(bit6)*8;
+	}
+
+	ignorehitpause if( Map(i68426842) && (Map(i68426842)&15) = 0||!map(i68426842t)&&$snk)
+	{
+	
+	map(i68426842):= 0;
+	}
+
+#i84268426 - U,B,D,F,U,B,D,F
+if map(i84268426t)
+{
+map(i84268426t):=map(i84268426t)-1;
+}
+	if (Map(i84268426)<=$b720+ const(bit6)  && (Map(h_dir)&$p_AllBits_dir) = $up)
+	{
+	#QCFx2Init 
+	map(i84268426):= $b720 + const(bit6)*1;
+	map(i84268426t):=map(sntimer);
+	}
+	if(floor(Map(i84268426)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 2
+	map(i84268426):= $b720 + const(bit6)*2;
+	}
+	if(floor(Map(i84268426)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 3
+	map(i84268426):= $b720 + const(bit6)*3;
+	}
+	if(floor(Map(i84268426)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 4
+	map(i84268426):= $b720 + const(bit6)*4;
+	}
+        if(floor(Map(i84268426)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#QCFx2 Init 4
+	map(i84268426):= $b720 + const(bit6)*5;
+	}
+         
+	if(floor(Map(i84268426)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCFx2 Init 2
+	map(i84268426):= $b720 + const(bit6)*6;
+	}
+	if(floor(Map(i84268426)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 3
+	map(i84268426):= $b720 + const(bit6)*7;
+	}
+	ignorehitpause if(Map(i84268426)/Const(Bit6)) = 7 && ((Map(p_dir)&$p_AllBits_dir) = $right)
+	{
+	#QCFx2 Init 4
+	map(i84268426):= $b720-cond($snk, 0, 1) + const(bit6)*8;
+	}
+	ignorehitpause if( Map(i84268426) && (Map(i84268426)&15) = 0||!map(i84268426t)&&$snk)
+	{
+	
+	map(i84268426):= 0;
+	}
+
+
+
+#QCFQC - D,DF,F,D,DF
+if map(i23623t)
+{
+map(i23623t):=map(i23623t)-1;
+}
+	if (Map(i23623) <= $qd + const(bit6) && ((Map(p_dir)&$p_AllBits_dir) = $down || (Map(r_dir)&15) = 2||(Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2Init 
+	map(i23623):= $qd + const(bit6)*1;
+	map(i23623t):=map(sntimer);
+	}
+	if(floor(Map(i23623)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#QCFx2 Init 2
+	map(i23623):= $qd + const(bit6)*2;
+	}
+	if(floor(Map(i23623)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 3
+	map(i23623):= $qd + const(bit6)*3;
+	}
+	if(floor(Map(i23623)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 4
+	map(i23623):= $qd + const(bit6)*4;
+	}
+	if(floor(Map(i23623)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#QCFx2 Init 5
+	map(i23623):= $qd + const(bit6)*5;
+	}
+
+	ignorehitpause if( Map(i23623) && (Map(i23623)&15) = 0||!map(i23623t)&&$snk)
+	{
+	
+	map(i23623):= 0;
+	}
+
+#QCBQC - D,DB,B,D,DB
+if map(i21421t)
+{
+map(i21421t):=map(i21421t)-1;
+}
+	if (Map(i21421) <= $qd+ const(bit6)  && ((Map(p_dir)&$p_AllBits_dir) = $down || (Map(r_dir)&15) = 2||(Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2Init 
+	map(i21421):= $qd + const(bit6)*1;
+	map(i21421t):=map(sntimer);
+	}
+	if(floor(Map(i21421)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#QCFx2 Init 2
+	map(i21421):= $qd + const(bit6)*2;
+	}
+	if(floor(Map(i21421)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left || (Map(p_dir)&15) = 8))
+	{
+	#QCFx2 Init 3
+	map(i21421):= $qd + const(bit6)*3;
+	}
+	if(floor(Map(i21421)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 4
+	map(i21421):= $qd + const(bit6)*4;
+	}
+	if(floor(Map(i21421)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#QCFx2 Init 5
+	map(i21421):= $qd + const(bit6)*5;
+	}
+
+	ignorehitpause if( Map(i21421) && (Map(i21421)&15) = 0||!map(i21421t)&&$snk)
+	{
+	
+	map(i21421):= 0;
+	}
+
+
+#QCFx2 - D,DF,F,D,DF,F
+if map(i236236t)
+{
+map(i236236t):=map(i236236t)-1;
+}
+	if (Map(i236236) <= $qc2+ const(bit6)  && ((Map(p_dir)&$p_AllBits_dir) = $down || (Map(r_dir)&15) = 2||(Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2Init 
+	map(i236236):= $qc2 + const(bit6)*1;
+	map(i236236t):=map(sntimer);
+	}
+	if(floor(Map(i236236)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#QCFx2 Init 2
+	map(i236236):= $qc2 + const(bit6)*2;
+	}
+	if(floor(Map(i236236)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 3
+	map(i236236):= $qc2 + const(bit6)*3;
+	}
+	if(floor(Map(i236236)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFx2 Init 4
+	map(i236236):= $qc2 + const(bit6)*4;
+	}
+	if(floor(Map(i236236)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#QCFx2 Init 5
+	map(i236236):= $qc2 + const(bit6)*5;
+	}
+  	if(floor(Map(i236236)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFx2 Init 6
+	map(i236236):= $qc2 + const(bit6)*6;
+	}
+
+	if (Map(i236236) && (Map(i236236)&15) = 0||!map(i236236t)&&$snk)
+	{
+	
+	map(i236236):= 0;
+	}
+
+#QCBx2 - D,DB,B,D,DB,B
+if map(i214214t)
+{
+map(i214214t):=map(i214214t)-1;
+}
+	if (Map(i214214)<= $qc2+ const(bit6)  && ((Map(p_dir)&$p_AllBits_dir) = $down || (Map(r_dir)&15) = 2||(Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCBx2 Init 
+	map(i214214):= $qc2 + const(bit6)*1;
+	map(i214214t):=map(sntimer);
+	}
+	if(floor(Map(i214214)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#QCBx2 Init 2
+	map(i214214):= $qc2 + const(bit6)*2;
+	}
+	if(floor(Map(i214214)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCBx2 Init 3
+	map(i214214):= $qc2 + const(bit6)*3;
+	}
+	if(floor(Map(i214214)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCBx2 Init 4
+	map(i214214):= $qc2 + const(bit6)*4;
+	}
+	if(floor(Map(i214214)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#QCBx2 Init 5
+	map(i214214):= $qc2 + const(bit6)*5;
+	}
+  	if(floor(Map(i214214)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCBx2 Init 6
+	map(i214214):= $qc2 + const(bit6)*6;
+	}
+
+	ignorehitpause if Map(i214214) && (Map(i214214)&15) = 0||!map(i214214t)&&$snk
+	{
+	map(i214214):= 0;
+	}
+
+
+#HCBF - F,DF,D,DB,B,F
+if map(i632146t)
+{
+map(i632146t):=map(i632146t)-1;
+}
+	 if (Map(i632146) <= $fh2+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $right))
+	{
+	#HCBF Init 
+	map(i632146):= $fh2 + const(bit6)*1;
+	map(i632146t):=map(sntimer);
+	}
+	 if(floor(Map(i632146)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right||$snk))
+	{
+	#HCBF Init 2
+	map(i632146):= $fh2 + const(bit6)*2;
+	}
+	 if(floor(Map(i632146)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#HCBF Init 3
+	map(i632146):= $fh2 + const(bit6)*3;
+	}
+  	 if(floor(Map(i632146)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left||$snk))
+	{
+	#HCBF Init 4
+	map(i632146):= $fh2 + const(bit6)*4;
+	}
+  	if(floor(Map(i632146)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#HCBF Init 5
+	map(i632146):= $fh2 + const(bit6)*5;
+	}
+	if(floor(Map(i632146)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#HCBF Init 6
+	map(i632146):= $fh2 + const(bit6)*6;
+	}
+	ignorehitpause if Map(i632146) && (Map(i632146)&15) = 0||!map(i632146t)&&$snk
+	{
+
+	map(i632146):= 0;
+	}
+
+#HCFB - B,DB,D,DF,F,B
+if map(i412364t)
+{
+map(i412364t):=map(i412364t)-1;
+}
+	if (Map(i412364) <= $fh2+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $left))
+	{
+	#HCFB Init 
+	map(i412364):= $fh2 + const(bit6)*1;
+	map(i412364t):=map(sntimer);
+	}
+	if(floor(Map(i412364)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left||$snk))
+	{
+	#HCFB Init 2
+	map(i412364):= $fh2 + const(bit6)*2;
+	}
+	if(floor(Map(i412364)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#HCFB Init 4
+	map(i412364):= $fh2 + const(bit6)*3;
+	}
+  	if(floor(Map(i412364)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right||$snk))
+	{
+	#HCFB Init 6
+	map(i412364):= $fh2 + const(bit6)*4;
+	}
+	  	if(floor(Map(i412364)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#HCFB Init 6
+	map(i412364):= $fh2 + const(bit6)*5;
+	}
+	  	if(floor(Map(i412364)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#HCFB Init 6
+	map(i412364):= $fh2 + const(bit6)*6;
+	}
+
+	ignorehitpause if  Map(i412364) && (Map(i412364)&15) = 0||!map(i412364t)&&$snk
+	{
+	
+	map(i412364):= 0;
+	}
+
+
+#FHCF - F,B,DB,D,DF,F
+if map(i641236t)
+{
+map(i641236t):=map(i641236t)-1;
+}
+	ignorehitpause if(Map(i641236) <= $fh2+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $right))
+	{
+	#FHCF Init 
+	map(i641236):= $fh2 + const(bit6)*1;
+	map(i641236t):=map(sntimer);
+	}
+	if(floor(Map(i641236)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#FHCF Init 2
+	map(i641236):= $fh2 + const(bit6)*2;
+	}
+	if(floor(Map(i641236)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left||$snk))
+	{
+	#FHCF Init 4
+	map(i641236):= $fh2 + const(bit6)*3;
+	}
+  	if(floor(Map(i641236)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#FHCF Init 5
+	map(i641236):= $fh2 + const(bit6)*4;
+	}
+  	if(floor(Map(i641236)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right||$snk))
+	{
+	#FHCF Init 6
+	map(i641236):= $fh2 + const(bit6)*5;
+	}
+  	if(floor(Map(i641236)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#FHCF Init 7
+	map(i641236):= $fh2 + const(bit6)*6;
+	}
+
+	ignorehitpause if Map(i641236) && (Map(i641236)&15) = 0||!map(i641236t)&&$snk
+	{
+	
+	map(i641236):= 0;
+	}
+
+#BHCB - B,F,DF,D,DB,B
+if map(i463214t)
+{
+map(i463214t):=map(i463214t)-1;
+}
+	if (Map(i463214) <= $fh2+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $left))
+	{
+	#BHCB Init 
+	map(i463214):= $fh2 + const(bit6)*1;
+	map(i463214t):=map(sntimer);
+	}
+	if(floor(Map(i463214)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $right||$snk))
+	{
+	#BHCB Init 2
+	map(i463214):= $fh2 + const(bit6)*2;
+	}
+	if(floor(Map(i463214)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#BHCB Init 4
+	map(i463214):= $fh2 + const(bit6)*3;
+	}
+  	if(floor(Map(i463214)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#BHCB Init 5
+	map(i463214):= $fh2 + const(bit6)*4;
+	}
+  	if(floor(Map(i463214)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left||$snk) || (Map(p_dir)&15) = 6)
+	{
+	#BHCB Init 6
+	map(i463214):= $fh2 + const(bit6)*5;
+	}
+  	if(floor(Map(i463214)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#BHCB Init 7
+	map(i463214):= $fh2 + const(bit6)*6;
+	}
+
+	ignorehitpause if Map(i463214) && (Map(i463214)&15) = 0||!map(i463214t)&&$snk
+	{
+	
+	map(i463214):= 0;
+	}
+
+#QCFHCB - D,DF,F,DF,D,DB,B
+if map(i2363214t)
+{
+map(i2363214t):=map(i2363214t)-1;
+}
+	if (Map(i2363214) <= $qh1+ const(bit6)  && ((Map(p_dir)&$p_AllBits_dir) = $down || (Map(r_dir)&15) = 2||(Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFHCB Init 
+	map(i2363214):= $qh1 + const(bit6)*1;
+	map(i2363214t):=map(sntimer);
+ 
+	}
+	if(floor(Map(i2363214)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right||$snk))
+	{
+	#QCFHCB Init 2
+	map(i2363214):= $qh1 + const(bit6)*2;
+	}
+	if(floor(Map(i2363214)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCFHCB Init 3
+	map(i2363214):= $qh1 + const(bit6)*3;
+	}
+	if(floor(Map(i2363214)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right||$snk))
+	{
+	#QCFHCB Init 4
+	map(i2363214):= $qh1 + const(bit6)*4;
+	}
+	if(floor(Map(i2363214)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCFHCB Init 5
+	map(i2363214):= $qh1 + const(bit6)*5;
+	}
+	if(floor(Map(i2363214)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left||$snk))
+	{
+	#QCFHCB Init 5
+	map(i2363214):= $qh1 + const(bit6)*6;
+	}
+	if(floor(Map(i2363214)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $left||!$snk))
+	{
+	#QCFHCB Init 5
+	map(i2363214):= $qh1-cond($snk,0,1) + const(bit6)*7;
+	}
+
+	ignorehitpause if Map(i2363214) && (Map(i2363214)&15) = 0||!map(i2363214t)&&$snk
+	{
+	
+	map(i2363214):= 0;
+	}
+
+#QCBHCF - D,DB,B,DB,D,DF,F
+if map(i2141236t)
+{
+map(i2141236t):=map(i2141236t)-1;
+}
+	if (Map(i2141236) <= $qh1+ const(bit6)  && ((Map(p_dir)&$p_AllBits_dir) = $down || (Map(r_dir)&15) = 2||(Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCBHCF Init 
+	map(i2141236):= $qh1 + const(bit6)*1;
+	map(i2141236t):=map(sntimer);
+	}
+	if(floor(Map(i2141236)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left||$snk))
+	{
+	#QCBHCF Init 2
+	map(i2141236):= $qh1 + const(bit6)*2;
+	}
+	if(floor(Map(i2141236)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCBHCF Init 3
+	map(i2141236):= $qh1 + const(bit6)*3;
+	}
+	if(floor(Map(i2141236)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left||$snk))
+	{
+	#QCBHCF Init 4
+	map(i2141236):= $qh1 + const(bit6)*4;
+	}
+	
+	if(floor(Map(i2141236)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCBHCF Init 5
+	map(i2141236):= $qh1 + const(bit6)*5;
+	}
+	if(floor(Map(i2141236)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right||$snk))
+	{
+	#QCBHCF Init 5
+	map(i2141236):= $qh1 + const(bit6)*6;
+	}
+	if(floor(Map(i2141236)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $right||!$snk))
+	{
+	#QCBHCF Init 5
+	map(i2141236):= $qh1-cond($snk,0,1) + const(bit6)*7;
+	}
+
+	ignorehitpause if Map(i2141236) && (Map(i2141236)&15) = 0||!map(i2141236t)&&$snk
+	{
+	
+	map(i2141236):= 0;
+	}
+
+#HCBx2 - F,D,B,F,D,B
+if map(i6321463214t)
+{
+map(i6321463214t):=map(i6321463214t)-1;
+}
+	if (Map(i6321463214) <= $hcb2+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $right))
+	{
+	#HCBx2 Init 
+	map(i6321463214):= $hcb2 + const(bit6)*1;
+	map(i6321463214t):=map(sntimer);
+	}
+	if(floor(Map(i6321463214)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#HCBx2 Init 2
+	map(i6321463214):= $hcb2 + const(bit6)*2;
+	}
+	if(floor(Map(i6321463214)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#HCBx2 Init 3
+	map(i6321463214):= $hcb2 + const(bit6)*3;
+	}
+	if(floor(Map(i6321463214)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#HCBx2 Init 4
+	map(i6321463214):= $hcb2 + const(bit6)*4;
+	}
+	if(floor(Map(i6321463214)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#HCBx2 Init 5
+	map(i6321463214):= $hcb2 + const(bit6)*5;
+	}
+	if(floor(Map(i6321463214)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = cond(!$snk,96,64)))
+	{
+	#HCBx2 Init 5
+	map(i6321463214):= $hcb2 + const(bit6)*6;
+	}
+
+	ignorehitpause if  Map(i6321463214) && (Map(i6321463214)&15) = 0||!map(i6321463214t)&&$snk
+	{
+	map(i6321463214):= 0;
+	}
+
+#HCFx2 - B,D,F,B,D,F
+if map(i4123641236t)
+{
+map(i4123641236t):=map(i4123641236t)-1;
+}
+	if (Map(i4123641236) <= $hcb2+ const(bit6)   && ((Map(h_dir)&$p_AllBits_dir) = $left))
+	{
+	#HCBx2 Init 
+	map(i4123641236):= $hcb2 + const(bit6)*1;
+	map(i4123641236t):=map(sntimer);
+	}
+	if(floor(Map(i4123641236)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#HCBx2 Init 2
+	map(i4123641236):= $hcb2 + const(bit6)*2;
+	}
+	if(floor(Map(i4123641236)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#HCBx2 Init 3
+	map(i4123641236):= $hcb2 + const(bit6)*3;
+	}
+	if(floor(Map(i4123641236)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#HCBx2 Init 4
+	map(i4123641236):= $hcb2 + const(bit6)*4;
+	}
+		if(floor(Map(i4123641236)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#HCBx2 Init 5
+	map(i4123641236):= $hcb2 + const(bit6)*5;
+	}
+	if(floor(Map(i4123641236)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = cond(!$snk,160,128)))
+	{
+	#HCBx2 Init 5
+	map(i4123641236):= $hcb2 + const(bit6)*6;
+	}
+
+	ignorehitpause if  Map(i4123641236) && (Map(i4123641236)&15) = 0||!map(i4123641236t)&&$snk
+	{
+	map(i4123641236):= 0;
+	}
+
+#SGS6 button - x,x,F,a,z
+if map(xx6azt)
+{
+map(xx6azt):=map(xx6azt)-1;
+}
+	ignorehitpause if (Map(xx6az) <= $sgs1+ const(bit6)  && (Map(r_att)&$release_x) > 0)
+	{
+	#xx6az Init 
+	map(xx6az):= $sgs1 + const(bit6)*1;
+	map(xx6azt):=map(sntimer);
+	}
+	if(floor(Map(xx6az)/Const(Bit6)) = 1 && (Map(p_att)&$x) > 0)
+	{
+	#xx6az Init 2
+	map(xx6az):= $sgs1 + const(bit6)*2;
+	}
+	if(floor(Map(xx6az)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#xx6az Init 3
+	map(xx6az):= $sgs1 + const(bit6)*3;
+	}
+	if(floor(Map(xx6az)/Const(Bit6)) = 3 && (Map(p_att)&$a) > 0)
+	{
+	#xx6az Init 4
+	map(xx6az):= $sgs1 + const(bit6)*4;
+	}
+	if(floor(Map(xx6az)/Const(Bit6)) = 4 && (Map(p_att)&$z) > 0)
+	{
+	#xx6az Init 5
+	map(xx6az):= $sgs1 + const(bit6)*5;
+	}
+	ignorehitpause if Map(xx6az) && (Map(xx6az)&15) = 0||!map(xx6azt)&&$snk
+	{
+	map(xx6az):= 0;
+	}
+#SGS6 button - x,x,B,a,z
+if map(xx4azt)
+{
+map(xx4azt):=map(xx4azt)-1;
+}
+	ignorehitpause if (Map(xx4az) <= $sgs1+ const(bit6)  && (Map(r_att)&$release_x) > 0)
+	{
+	#xx6az Init 
+	map(xx4az):= $sgs1 + const(bit6)*1;
+	map(xx4azt):=map(sntimer);
+	}
+	if(floor(Map(xx4az)/Const(Bit6)) = 1 && (Map(p_att)&$x) > 0)
+	{
+	#xx6az Init 2
+	map(xx4az):= $sgs1 + const(bit6)*2;
+	}
+	if(floor(Map(xx4az)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#xx6az Init 3
+	map(xx4az):= $sgs1 + const(bit6)*3;
+	}
+ 	if(floor(Map(xx4az)/Const(Bit6)) = 3 && (Map(p_att)&$a) > 0)
+	{
+	#xx6az Init 4
+	map(xx4az):= $sgs1 + const(bit6)*4;
+	}
+	if(floor(Map(xx4az)/Const(Bit6)) = 4 && (Map(p_att)&$z) > 0)
+	{
+	#xx6az Init 5
+	map(xx4az):= $sgs1 + const(bit6)*5;
+	}
+	ignorehitpause if Map(xx4az) && (Map(xx4az)&15) = 0||!map(xx4azt)&&$snk
+	{
+	map(xx4az):= 0;
+	}
+
+#SGS4 button - x,x,F,a,y
+if map(xx6ayt)
+{
+map(xx6ayt):=map(xx6ayt)-1;
+}
+	ignorehitpause if (Map(xx6ay) <= $sgs1+ const(bit6)  && (Map(r_att)&$release_x) > 0)
+	{
+	#xx6az Init 
+	map(xx6ay):= $sgs1 + const(bit6)*1;
+	map(xx6ayt):=map(sntimer);
+	}
+	if(floor(Map(xx6ay)/Const(Bit6)) = 1 && (Map(p_att)&$x) > 0)
+	{
+	#xx6az Init 2
+	map(xx6ay):= $sgs1 + const(bit6)*2;
+	}
+	if(floor(Map(xx6ay)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#xx6az Init 3
+	map(xx6ay):= $sgs1 + const(bit6)*3;
+	}
+	if(floor(Map(xx6ay)/Const(Bit6)) = 3 && (Map(p_att)&$a) > 0)
+	{
+	#xx6az Init 4
+	map(xx6ay):= $sgs1 + const(bit6)*4;
+	}
+	if(floor(Map(xx6ay)/Const(Bit6)) = 4 && (Map(p_att)&$y) > 0)
+	{
+	#xx6az Init 5
+	map(xx6ay):= $sgs1 + const(bit6)*5;
+	}
+	ignorehitpause if Map(xx6ay) && (Map(xx6ay)&15) = 0||!map(xx6ayt)&&$snk
+	{
+	map(xx6ay):= 0;
+	}
+
+#SGS4 button - x,x,B,a,y
+if map(xx4ayt)
+{
+map(xx4ayt):=map(xx4ayt)-1;
+}
+	ignorehitpause if (Map(xx4ay) <= $sgs1+ const(bit6)  && (Map(r_att)&$release_x) > 0)
+	{
+	#xx6az Init 
+	map(xx4ay):= $sgs1 + const(bit6)*1;
+	map(xx4ayt):=map(sntimer);
+	}
+	if(floor(Map(xx4ay)/Const(Bit6)) = 1 && (Map(p_att)&$x) > 0)
+	{
+	#xx6az Init 2
+	map(xx4ay):= $sgs1 + const(bit6)*2;
+	}
+	if(floor(Map(xx4ay)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#xx6az Init 3
+	map(xx4ay):= $sgs1 + const(bit6)*3;
+	}
+ 	if(floor(Map(xx4ay)/Const(Bit6)) = 3 &&(Map(p_att)&$a) > 0)
+	{
+	#xx6az Init 4
+	map(xx4ay):= $sgs1 + const(bit6)*4;
+	}
+	if(floor(Map(xx4ay)/Const(Bit6)) = 4 && (Map(p_att)&$y) > 0)
+	{
+	#xx6az Init 5
+	map(xx4ay):= $sgs1 + const(bit6)*5;
+	}
+	ignorehitpause if Map(xx4ay) && (Map(xx4ay)&15) = 0||!map(xx4ayt)&&$snk
+	{
+	map(xx4ay):= 0;
+	}
+
+
+#BFBF button - B,F,B,F
+if map(r_4646t)
+{
+map(r_4646t):=map(r_4646t)-1;
+}
+	ignorehitpause if (Map(r_4646) <= $bfb + const(bit6) && cond(!root,Map(charge_partition) && !root,Map(NoCharge), root,Map(B_ChargeReady), (Map(r_dir)&4) > 0))
+	{
+	#BFBF Init 
+	map(r_4646):= $bfb + const(bit6)*1;
+	map(r_4646t):=map(sntimer);
+	}
+	if(floor(Map(r_4646)/Const(Bit6)) = 1 && (Map(p_dir)&128) > 0)
+	{
+	#BFBF Init 2
+	map(r_4646):= $bfb + const(bit6)*2;
+	}
+        if(floor(Map(r_4646)/Const(Bit6)) = 2 && (Map(p_dir)&64) > 0)
+	{
+	#BFBF Init 3
+	map(r_4646):= $bfb + const(bit6)*3;
+	}
+        if(floor(Map(r_4646)/Const(Bit6)) = 3 && (Map(p_dir)&128) > 0)
+	{
+	#BFBF Init 4
+	map(r_4646):= $bfb + const(bit6)*4;
+	}
+	ignorehitpause if Map(r_4646) && (Map(r_4646)&15) = 0||!map(r_4646t)&&$snk
+	{
+	map(r_4646):= 0;
+	}
+#FBFB button - F,B,F,B
+if map(r_6464t)
+{
+map(r_6464t):=map(r_6464t)-1;
+}
+	ignorehitpause if (Map(r_6464) <= $bfb + const(bit6) && cond(!root,Map(charge_partition) && !root,Map(NoCharge), root,Map(B_ChargeReady), (Map(r_dir)&8) > 0))
+	{
+	#xx6az Init 
+	map(r_6464):= $bfb + const(bit6)*1;
+	map(r_6464t):=map(sntimer);
+	}
+	if(floor(Map(r_6464)/Const(Bit6)) = 1 && (Map(p_dir)&64) > 0)
+	{
+	#xx6az Init 2
+	map(r_6464):= $bfb + const(bit6)*2;
+	}
+	if(floor(Map(r_6464)/Const(Bit6)) = 2 && (Map(p_dir)&128) > 0)
+	{
+	#xx6az Init 3
+	map(r_6464):= $bfb + const(bit6)*3;
+	}
+ 	if(floor(Map(r_6464)/Const(Bit6)) = 3 && (Map(p_dir)&64) > 0)
+	{
+	#xx6az Init 4
+	map(r_6464):= $bfb + const(bit6)*4;
+	}
+	ignorehitpause if Map(r_6464) && (Map(r_6464)&15) = 0||!map(r_6464t)&&$snk
+	{
+	map(r_6464):= 0;
+	}
+
+#JKF button - DB,DF,DB,UF
+if map(r_1319t)
+{
+map(r_1319t):=map(r_1319t)-1;
+}
+	ignorehitpause if (Map(r_1319) <= $jkf + const(bit6) && cond(!root,Map(charge_partition) && !root,Map(NoCharge), root,Map(B_ChargeReady) && root,Map(D_ChargeReady), (Map(r_dir)&15) = 6))
+	{
+	#JKF Init 
+	map(r_1319):= $jkf + const(bit6)*1;
+	map(r_1319t):=map(sntimer);
+	}
+	if(floor(Map(r_1319)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right ||(Map(h_dir)&$p_AllBits_dir)=160))
+	{
+	#xx6az Init 2
+	map(r_1319):= $jkf + const(bit6)*2;
+	}
+	if(floor(Map(r_1319)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left||(Map(h_dir)&$p_AllBits_dir)=96))
+	{
+	#xx6az Init 3
+	map(r_1319):= $jkf + const(bit6)*3;
+	}
+ 	if(floor(Map(r_1319)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = 144||(Map(h_dir)&$p_AllBits_dir)=144))
+	{
+	#xx6az Init 4
+	map(r_1319):= $jkf + const(bit6)*4;
+	}
+	ignorehitpause if Map(r_1319) && (Map(r_1319)&15) = 0||!map(r_1319t)&&$snk
+	{
+	map(r_1319):= 0;
+	}
+#RJKF button - DF,DB,DF,UB
+if map(r_3137t)
+{
+map(r_3137t):=map(r_3137t)-1;
+}
+	ignorehitpause if (Map(r_3137) <= $jkf + const(bit6) && cond(!root,Map(charge_partition) && !root,Map(NoCharge), root,Map(F_ChargeReady) && root,Map(D_ChargeReady), ((Map(r_dir)&15) = 10)))
+	{
+	#xx6az Init 
+	map(r_3137):= $jkf + const(bit6)*1;
+	map(r_3137t):=map(sntimer);
+	}
+	if(floor(Map(r_3137)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left||(Map(h_dir)&$p_AllBits_dir)=96))
+	{
+	#xx6az Init 2
+	map(r_3137):= $jkf + const(bit6)*2;
+	}
+	if(floor(Map(r_3137)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right ||(Map(h_dir)&$p_AllBits_dir)=160))
+	{
+	#xx6az Init 3
+	map(r_3137):= $jkf + const(bit6)*3;
+	}
+ 	if(floor(Map(r_3137)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = 80))
+	{
+	#xx6az Init 4
+	map(r_3137):= $jkf + const(bit6)*4;
+	}
+	ignorehitpause if Map(r_3137) && (Map(r_3137)&15) = 0||!map(r_3137t)&&$snk
+	{
+	map(r_3137):= 0;
+	}
+
+#PRTZ button - DB,F,DF,D,DB,B,DF
+if map(i1632143t)
+{
+map(i1632143t):=map(i1632143t)-1;
+}
+	if (Map(i3412361) <= $ptz+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#xx6az Init 
+	map(i1632143):= $ptz + const(bit6)*1;
+	map(i1632143t):=map(sntimer);
+	}
+	if(floor(Map(i1632143)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#xx6az Init 2
+	map(i1632143):= $ptz + const(bit6)*2;
+	}
+	if(floor(Map(i1632143)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#xx6az Init 3
+	map(i1632143):= $ptz + const(bit6)*3;
+	}
+	if(floor(Map(i1632143)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#xx6az Init 4
+	map(i1632143):= $ptz + const(bit6)*4;
+	}
+	if(floor(Map(i1632143)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#xx6az Init 5
+	map(i1632143):= $ptz + const(bit6)*5;
+	}
+ 	if(floor(Map(i1632143)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#xx6az Init 6
+	map(i1632143):= $ptz + const(bit6)*6;
+	}
+	if(floor(Map(i1632143)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#xx6az Init 7
+	map(i1632143):= $ptz + const(bit6)*7;
+	}
+	ignorehitpause if Map(i1632143) && (Map(i1632143)&15) = 0||!map(i1632143t)&&$snk
+	{
+	map(i1632143):= 0;
+	}
+
+#RPRTZ button - DF,B,DB,D,DF,F,DB
+if map(i3412361t)
+{
+map(i3412361t):=map(i3412361t)-1;
+} 
+	if (Map(i3412361) <= $ptz+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#xx6az Init 
+	map(i3412361):= $ptz + const(bit6)*1;
+	map(i3412361t):=map(sntimer);
+	}
+	if(floor(Map(i3412361)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#xx6az Init 2
+	map(i3412361):= $ptz + const(bit6)*2;
+	}
+	if(floor(Map(i3412361)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#xx6az Init 3
+	map(i3412361):= $ptz + const(bit6)*3;
+	}
+	if(floor(Map(i3412361)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#xx6az Init 4
+	map(i3412361):= $ptz + const(bit6)*4;
+	}
+ 	if(floor(Map(i3412361)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#xx6az Init 5
+	map(i3412361):= $ptz + const(bit6)*5;
+	}
+	if(floor(Map(i3412361)/Const(Bit6)) = 5 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#xx6az Init 6
+	map(i3412361):= $ptz + const(bit6)*6;
+	}
+	if(floor(Map(i3412361)/Const(Bit6)) = 6 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#xx6az Init 7
+	map(i3412361):= $ptz + const(bit6)*7;
+	}
+	ignorehitpause if Map(i3412361) && (Map(i3412361)&15) = 0||!map(i3412361t)&&$snk
+	{
+	map(i3412361):= 0;
+	}
+#----------------[SPECIALS]----------------
+
+
+
+#6248 - F,D,B,U
+if map(i6248t)
+{
+map(i6248t):=map(i6248t)-1;
+} 
+	if (Map(i6248) <= $b360+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $right))
+	{
+	#6248 Init 
+	map(i6248):= $b360 + const(bit6)*1;
+	map(i6248t):=map(sntimer);
+	}
+	if(floor(Map(i6248)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#6248 Init 2
+	map(i6248):= $b360 + const(bit6)*2;
+	}
+	if(floor(Map(i6248)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#6248 Init 3
+	map(i6248):= $b360 + const(bit6)*3;
+	}
+	if(floor(Map(i6248)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#6248 Init 4
+	map(i6248):= $b360-cond($snk, 0, 1) + const(bit6)*4;
+	}
+	ignorehitpause if( Map(i6248) && (Map(i6248)&15) = 0||!map(i6248t)&&$snk)
+	{
+	
+	map(i6248):= 0;
+	}
+
+#2486 - D,B,U,F
+if map(i2486t)
+{
+map(i2486t):=map(i2486t)-1;
+} 
+	if (Map(i2486) <= $b360 + const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#2486 Init 
+	map(i2486):= $b360 + const(bit6)*1;
+	map(i2486t):=map(sntimer);
+	}
+	if(floor(Map(i2486)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#2486 Init 2
+	map(i2486):= $b360 + const(bit6)*2;
+	}
+	if(floor(Map(i2486)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#2486 Init 3
+	map(i2486):= $b360 + const(bit6)*3;
+	}
+	if(floor(Map(i2486)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#2486 Init 4
+	map(i2486):= $b360-cond($snk, 0, 1) + const(bit6)*4;
+	}
+	ignorehitpause if( Map(i2486) && (Map(i2486)&15) = 0||!map(i2486t)&&$snk)
+	{
+	
+	map(i2486):= 0;
+	}
+
+#4862 - B,U,F,D
+if map(i4862t)
+{
+map(i4862t):=map(i4862t)-1;
+} 
+	if (Map(i4862) <= $b360 + const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $left))
+	{
+	#4862 Init 
+	map(i4862):= $b360 + const(bit6)*1;
+	map(i4862t):=map(sntimer);
+	}
+	if(floor(Map(i4862)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#4862 Init 2
+	map(i4862):= $b360 + const(bit6)*2;
+	}
+	if(floor(Map(i4862)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#4862 Init 3
+	map(i4862):= $b360 + const(bit6)*3;
+	}
+	if(floor(Map(i4862)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#4862 Init 4
+	map(i4862):= $b360-cond($snk, 0, 1) + const(bit6)*4;
+	}
+	ignorehitpause if( Map(i4862) && (Map(i4862)&15) = 0||!map(i4862t)&&$snk)
+	{
+	
+	map(i4862):= 0;
+	}
+
+#8624 - U,F,D,B
+if map(i8624t)
+{
+map(i8624t):=map(i8624t)-1;
+}  
+	if (Map(i8624) <= $b360 + const(bit6) && ((Map(h_dir)&$p_AllBits_dir) = $up))
+	{
+	#8624 Init 
+	map(i8624):= $b360 + const(bit6)*1;
+	map(i8624t):=map(sntimer);
+	}
+	if(floor(Map(i8624)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#8624 Init 2
+	map(i8624):= $b360 + const(bit6)*2;
+	}
+	if(floor(Map(i8624)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#8624 Init 3
+	map(i8624):= $b360 + const(bit6)*3;
+	}
+	if(floor(Map(i8624)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#8624 Init 4
+	map(i8624):= $b360-cond($snk, 0, 1) + const(bit6)*4;
+	}
+	ignorehitpause if( Map(i8624) && (Map(i8624)&15) = 0||!map(i8624t)&&$snk)
+	{
+	
+	map(i8624):= 0;
+	}
+
+#4268 - B,D,F,U
+if map(i4268t)
+{
+map(i4268t):=map(i4268t)-1;
+}  
+	if (Map(i4268) <= $b360 + const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $left))
+	{
+	#4268 Init 
+	map(i4268):= $b360 + const(bit6)*1;
+	map(i4268t):=map(sntimer);
+	}
+	if(floor(Map(i4268)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#4268 Init 2
+	map(i4268):= $b360 + const(bit6)*2;
+	}
+	if(floor(Map(i4268)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#4268 Init 3
+	map(i4268):= $b360 + const(bit6)*3;
+	}
+	if(floor(Map(i4268)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#4268 Init 4
+	map(i4268):= $b360-cond($snk, 0, 1) + const(bit6)*4;
+	}
+	ignorehitpause if(Map(i4268) && (Map(i4862)&15) = 0||!map(i4268t)&&$snk)
+	{
+	
+	map(i4268):= 0;
+	}
+
+#2684 - D,F,U,B
+if map(i2684t)
+{
+map(i2684t):=map(i2684t)-1;
+}  
+	if (Map(i2684) <= $b360+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#2684 Init 
+	map(i2684):= $b360 + const(bit6)*1;
+	map(i2684t):=map(sntimer);
+	}
+	if(floor(Map(i2684)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#2684 Init 2
+	map(i2684):= $b360 + const(bit6)*2;
+	}
+	if(floor(Map(i2684)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#2684 Init 3
+	map(i2684):= $b360 + const(bit6)*3;
+	}
+	if(floor(Map(i2684)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#2684 Init 4
+	map(i2684):= $b360-cond($snk, 0, 1) + const(bit6)*4;
+	}
+	ignorehitpause if( Map(i2684) && (Map(i2684)&15) = 0||!map(i2684t)&&$snk)
+	{
+	
+	map(i2684):= 0;
+	}
+
+#6842 - F,U,B,D
+if map(i6842t)
+{
+map(i6842t):=map(i6842t)-1;
+}  
+	if (Map(i6842) <= $b360+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $right))
+	{
+	#6842 Init 
+	map(i6842):= $b360 + const(bit6)*1;
+	map(i6842t):=map(sntimer);
+	}
+	if(floor(Map(i6842)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $up))
+	{
+	#6842 Init 2
+	map(i6842):= $b360 + const(bit6)*2;
+	}
+	if(floor(Map(i6842)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#6842 Init 3
+	map(i6842):= $b360 + const(bit6)*3;
+	}
+	if(floor(Map(i6842)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#6842 Init 4
+	map(i6842):= $b360-cond($snk, 0, 1) + const(bit6)*4;
+	}
+	ignorehitpause if( Map(i6842) && (Map(i6842)&15) = 0||!map(i6842t)&&$snk)
+	{
+	
+	map(i6842):= 0;
+	}
+
+#8426 - U,B,D,F
+if map(i8426t)
+{
+map(i8426t):=map(i8426t)-1;
+}  
+	ignorehitpause if(Map(i8426) <= $b360+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $up))
+	{
+	#8426 Init 
+	map(i8426):= $b360 + const(bit6)*1;
+	map(i8426t):=map(sntimer);
+	}
+	if(floor(Map(i8426)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#8426 Init 2
+	map(i8426):= $b360 + const(bit6)*2;
+	}
+	if(floor(Map(i8426)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#8426 Init 3
+	map(i8426):= $b360 + const(bit6)*3;
+	}
+	if(floor(Map(i8426)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#8426 Init 4
+	map(i8426):= $b360-cond($snk, 0, 1) + const(bit6)*4;
+	}
+	ignorehitpause if( Map(i8426) && (Map(i8426)&15) = 0||!map(i8426t)&&$snk)
+	{
+	
+	map(i8426):= 0;
+	}
+
+
+
+#The more directions needed to complete the motion will determine how many mapset statements you will have to put in place
+#The example below is a simple B,F motion so we only need two map sets that will listen f||B and F respectively
+#The last mapset clears the input if the alloted time has passed.
+#CBF 
+       if map(i46t)
+{
+map(i46t):=map(i46t)-1;
+}   
+	ignorehitpause if(Map(i46) <= $CBT + const(bit6) && cond(!root,Map(tw_charge_partition) && !root,Map(tw_NoCharge), root,Map(tw_B_ChargeReady), (Map(r_dir)&4) > 0))
+	{
+	#CB,F Init 
+	map(i46):= $CBT + const(bit6)*1;
+	map(i46t):=map(sntimer);
+	}
+	if(floor(Map(i46)/Const(Bit6)) = 1 && (Map(h_dir)&136) > 0)
+	{
+	#CB,F Init 2
+	map(i46):= $CBT + const(bit6)*2;
+	}
+
+	ignorehitpause if(Map(i46) && (Map(i46)&15) = 0||!map(i46t)&&$snk)
+	{
+	
+	map(i46):= 0;
+	}
+
+
+
+#CFB - (charge)F,B
+if map(i64t)
+{
+map(i64t):=map(i64t)-1;
+} 
+	ignorehitpause if(Map(i64) <= $CBT + const(bit6) && cond(!root,Map(tw_charge_partition) && !root,Map(tw_NoCharge), root,Map(tw_F_ChargeReady), (Map(r_dir)&8) > 0))
+	{
+	#CF,B Init 
+	map(i64):= $CBT + const(bit6)*1;
+	map(i64t):=map(sntimer);
+	}
+	if(floor(Map(i64)/Const(Bit6)) = 1 && (map(p_dir)&68) > 0)
+	{
+	#CF,B Init 2
+	map(i64):= $CBT + const(bit6)*2;
+	}
+
+	ignorehitpause if(Map(i64) && (Map(i64)&15) = 0||!map(i64t)&&$snk)
+	{
+	
+	map(i64):= 0;
+	}
+
+#TBF - quicker B,F, less lenient 
+if map(t46t)
+{
+map(t46t):=map(t46t)-1;
+} 
+	ignorehitpause if(Map(t46) <= $TBT+ const(bit6)  && (Map(r_dir)&68) > 0)
+	{
+	#CB,F Init 
+	map(t46):= $TBT + const(bit6)*1;
+	map(t46t):=map(sntimer);
+	}
+	if(floor(Map(t46)/Const(Bit6)) = 1 && (map(p_dir)&$p_AllBits_dir) = $right)
+	{
+	#CB,F Init 2
+	map(t46):= $TBT + const(bit6)*2;
+	}
+
+	ignorehitpause if(Map(t46) && (Map(t46)&15) = 0||!map(t46t)&&$snk)
+	{
+	
+	map(t46):= 0;
+	}
+
+
+
+#TFB - F,B
+if map(t64t)
+{
+map(t64t):=map(t64t)-1;
+} 
+	ignorehitpause if(Map(t64) <= $TBT + const(bit6) && (Map(r_dir)&136) > 0)
+	{
+	#CF,B Init 
+	map(t64):= $TBT + const(bit6)*1;
+	map(t64t):=map(sntimer);
+	}
+	if(floor(Map(t64)/Const(Bit6)) = 1 && (map(p_dir)&$p_AllBits_dir) = $left)
+	{
+	#CF,B Init 2
+	map(t64):= $TBT + const(bit6)*2;
+	}
+
+	ignorehitpause if(Map(t64) && (Map(t64)&15) = 0||!map(t64t)&&$snk)
+	{
+	
+	map(t64):= 0;
+	}
+
+
+
+#BFB - B,F,B
+if map(i464t)
+{
+map(i464t):=map(i464t)-1;
+} 
+	ignorehitpause if(Map(i464) <= $BFT + const(bit6) && (Map(h_dir)&68) > 0)
+	{
+	#BFB Init 
+	map(i464):= $BFT + const(bit6)*1;
+	map(i464t):=map(sntimer);
+	}
+
+	if(floor(Map(i464)/Const(Bit6)) = 1 && ((Map(p_dir)&136) > 0))
+	{
+	#BFBInit 2
+	map(i464):= $BFT + const(bit6)*2;
+	}
+	if(floor(Map(i464)/Const(Bit6)) = 2 && ((Map(p_dir)&68) > 0))
+	{
+	#BFB Init 3 
+	map(i464):= $BFT + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i464) && (Map(i464)&15) = 0||!map(i464t)&&$snk)
+	{
+	
+	map(i464):= 0;
+	}
+
+
+#In this motion we have what is commonly known as "zanretsuken" which is a F,B,F motion. This requires 3 mapsets
+#To render the motion properly
+#The last mapset clears the input if the alloted time has passed.
+#FBF - F,B,F
+if map(i646t)
+{
+map(i646t):=map(i646t)-1;
+} 
+	ignorehitpause if(Map(i646) <= $BFT + const(bit6) && (Map(h_dir)&136) > 0)
+	{
+	#FBF Init 
+	map(i646):= $BFT + const(bit6)*1;
+	map(i646t):=map(sntimer);
+	}
+
+	if(floor(Map(i646)/Const(Bit6)) = 1 && ((Map(p_dir)&68) > 0))
+	{
+	#FBF Init 2
+	map(i646):= $BFT + const(bit6)*2;
+	}
+	if(floor(Map(i646)/Const(Bit6)) = 2 && ((Map(p_dir)&136) > 0))
+	{
+	#FBF Init 3 
+	map(i646):= $BFT + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i646) && (Map(i646)&15) = 0||!map(i646t)&&$snk)
+	{
+	
+	map(i646):= 0;
+	}
+
+#===========
+#TGK - DB,D,DF,F,UF
+
+if map(i12369t)
+{
+map(i12369t):=map(i12369t)-1;
+} 
+	ignorehitpause if(Map(i12369) <= $tg && ((Map(h_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#TGK Init 
+	map(i12369):= $tg + const(bit6)*1;
+	map(i12369t):=map(sntimer);
+	}
+
+	if(floor(Map(i12369)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#TGK Init 2
+	map(i12369):= $tg + const(bit6)*2;
+	}
+	if(floor(Map(i12369)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#TGK Init 3
+	map(i12369):= $tg + const(bit6)*3;
+	}
+	if(floor(Map(i12369)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#TGK Init 2
+	map(i12369):= $tg + const(bit6)*4;
+	}
+	if(floor(Map(i12369)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = 144))
+	{
+	#TGK Init 4
+	map(i12369):= $tg + const(bit6)*5;
+	}
+	
+	ignorehitpause if(Map(i12369) && (Map(i12369)&15) = 0||!map(i12369t)&&$snk)
+	{
+	map(i12369):= 0;
+	}
+#===========
+#RTGK - DF,D,DB,B,UB
+
+if map(i32147t)
+{
+map(i32147t):=map(i32147t)-1;
+} 
+	ignorehitpause if(Map(i32147) <= $tg && ((Map(h_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#TGK Init 
+	map(i32147):= $tg + const(bit6)*1;
+	map(i32147t):=map(sntimer);
+	}
+
+	if(floor(Map(i32147)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#TGK Init 2
+	map(i32147):= $tg + const(bit6)*2;
+	}
+	if(floor(Map(i32147)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#TGK Init 3
+	map(i32147):= $tg + const(bit6)*3;
+	}
+	if(floor(Map(i32147)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#TGK Init 2
+	map(i32147):= $tg + const(bit6)*4;
+	}
+	if(floor(Map(i32147)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = 80))
+	{
+	#TGK Init 4
+	map(i32147):= $tg + const(bit6)*5;
+	}
+	
+	ignorehitpause if(Map(i32147) && (Map(i32147)&15) = 0||!map(i32147t)&&$snk)
+	{
+	map(i32147):= 0;
+	}
+
+#HCB - F,D,B
+if map(i624t)
+{
+map(i624t):=map(i624t)-1;
+} 
+	ignorehitpause if(Map(i624) <= $hc && ((Map(h_dir)&$p_AllBits_dir) = $right))
+	{
+	#HCB Init 
+	map(i624):= $hc + const(bit6)*1;
+	map(i624t):=map(sntimer);
+	}
+
+	if(floor(Map(i624)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#HCB Init 2
+	map(i624):= $hc + const(bit6)*2;
+	}
+	if(floor(Map(i624)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#HCB Init 3 
+	map(i624):= $hc + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i624) && (Map(i624)&15) = 0||!map(i624t)&&$snk)
+	{
+	
+	map(i624):= 0;
+	}
+
+#sHCB - F,DF,D,DB,B
+if map(i63214t)
+{
+map(i63214t):=map(i63214t)-1;
+} 
+	if (Map(i63214) <= $hc + const(bit6) && ((Map(h_dir)&$p_AllBits_dir) = $right))
+	{
+	#sHCB Init 
+	map(i63214):= $hc + const(bit6)*1;
+	map(i63214t):=map(sntimer);
+	}
+	if(floor(Map(i63214)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#sHCB Init 2
+	map(i63214):= $hc + const(bit6)*2;
+	}
+	if(floor(Map(i63214)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#sHCB Init 3
+	map(i63214):= $hc + const(bit6)*3;
+	}
+  	if(floor(Map(i63214)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#sHCB Init 4
+	map(i63214):= $hc + const(bit6)*4;
+	}
+  	if(floor(Map(i63214)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#sHCB Init 5
+	map(i63214):= $hc + const(bit6)*5;
+	}
+	ignorehitpause if(Map(i63214) && (Map(i63214)&15) = 0||!map(i63214t)&&$snk)
+	{
+	map(i63214):= 0;
+	}
+
+
+
+#HCF - B,D,F
+if map(i426t)
+{
+map(i426t):=map(i426t)-1;
+} 
+	ignorehitpause if(Map(i426) <= $hc+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $left))
+	{
+	
+	map(i426):= $hc + const(bit6)*1;
+	map(i426t):=map(sntimer);
+	}
+
+	if(floor(Map(i426)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#HCF Init 2
+	map(i426):= $hc + const(bit6)*2;
+	}
+	if(floor(Map(i426)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#HCF Init 3 
+	map(i426):= $hc + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i426) && (Map(i426)&15) = 0||!map(i426t)&&$snk)
+	{
+	
+	map(i426):= 0;
+	}
+
+#sHCF - B,DB,D,DF,F
+if map(i41236t)
+{
+map(i41236t):=map(i41236t)-1;
+} 
+	if (Map(i41236) <= $hc + const(bit6) && ((Map(h_dir)&$p_AllBits_dir) = $left))
+	{
+	#sHCF Init 
+	map(i41236):= $hc + const(bit6)*1;
+	map(i41236t):=map(sntimer);
+	}
+	if(floor(Map(i41236)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#sHCF Init 2
+	map(i41236):= $hc + const(bit6)*2;
+	}
+	if(floor(Map(i41236)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#sHCF Init 4
+	map(i41236):= $hc + const(bit6)*3;
+	}
+  	if(floor(Map(i41236)/Const(Bit6)) = 3 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#sHCF Init 5
+	map(i41236):= $hc + const(bit6)*4;
+	}
+	  	if(floor(Map(i41236)/Const(Bit6)) = 4 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#HCF Init 5
+	map(i41236):= $hc + const(bit6)*5;
+	}
+	ignorehitpause if(Map(i41236) && (Map(i41236)&15) = 0||!map(i41236t)&&$snk)
+	{
+	
+	map(i41236):= 0;
+	}
+
+#QCD - F,DF,D
+if map(i632t)
+{
+map(i632t):=map(i632t)-1;
+} 
+	ignorehitpause if(Map(i632) <= $qd+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $right))
+	{
+	
+	map(i632):= $qd + const(bit6)*1;
+	map(i632t):=map(sntimer);
+	}
+    if(floor(Map(i632)/Const(Bit6)) = 1 && (Map(p_dir)&$p_AllBits_dir) = $down+$right )
+	{
+	#QCD Init 2
+	map(i632):= $qd + const(bit6)*2;
+	}
+	if(floor(Map(i632)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCD Init 2
+	map(i632):= $qd + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i632) && (Map(i632)&15) = 0||!map(i632t)&&$snk)
+	{
+	
+	map(i632):= 0;
+	}
+
+
+
+#RQCD - B,DF,D
+if map(i412t)
+{
+map(i412t):=map(i412t)-1;
+} 
+	ignorehitpause if(Map(i412) <= $qd+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $left))
+	{
+	
+	map(i412):= $qd + const(bit6)*1;
+	map(i412t):=map(sntimer);
+	}
+ 	if(floor(Map(i412)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#QCD Init 2
+	map(i412):= $qd + const(bit6)*2;
+	}
+	if(floor(Map(i412)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCD Init 2
+	map(i412):= $qd + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i412) && (Map(i412)&15) = 0||!map(i412t)&&$snk)
+	{
+	
+	map(i412):= 0;
+	}
+
+
+
+
+
+
+
+
+
+#rDP
+if map(i421t)
+{
+map(i421t):=map(i421t)-1;
+} 
+	ignorehitpause if(Map(i421) <= $dp + const(bit6) && ((Map(h_dir)&$p_AllBits_dir) = $left ))
+	{
+	
+	map(i421):=$dp + const(bit6)*1;
+	map(i421t):=map(sntimer);
+	}
+
+	if(floor(Map(i421)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#rDP Init 2
+	map(i421):= $dp + const(bit6)*2;
+	}
+	if(floor(Map(i421)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#rDP Init 3 
+	map(i421):= $dp + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i421) && (Map(i421)&15) = 0||!map(i421t)&&$snk)
+	{
+	
+	map(i421):= 0;
+	}
+
+
+
+#DP
+if map(i623t)
+{
+map(i623t):=map(i623t)-1;
+} 
+	ignorehitpause if(Map(i623) <= $dp+ const(bit6) && ((Map(h_dir)&$p_AllBits_dir) = $right ))
+	{
+	
+	map(i623):= $dp + const(bit6)*1;
+	map(i623t):=map(sntimer);
+	}
+
+	if(floor(Map(i623)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down))
+	{
+	#rDP Init 2
+	map(i623):= $dp + const(bit6)*2;
+	}
+	if(floor(Map(i623)/Const(Bit6)) = 2 && (Map(p_dir)&$p_AllBits_dir) = $down+$right )
+	{
+	#rDP Init 3 
+	map(i623):= $dp + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i623) && (Map(i623)&15) = 0||!map(i623t)&&$snk)
+	{
+	map(i623):= 0;
+	}
+
+
+#MiB - D,F,DF
+if map(i263t)
+{
+map(i263t):=map(i263t)-1;
+}  
+	ignorehitpause if(Map(i263) <= $mb+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $down ))
+	{
+	
+	map(i263):= $mb + const(bit6)*1;
+	map(i263t):=map(sntimer);
+	}
+
+	if(floor(Map(i263)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#QCD Init 2
+	map(i263):= $mb + const(bit6)*2;
+	}
+	if(floor(Map(i263)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#QCD Init 2
+	map(i263):= $mb + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i263) && (Map(i263)&15) = 0||!map(i263t)&&$snk)
+	{
+	
+	map(i263):= 0;
+	}
+
+
+
+#RMiB - D,B,DB
+if map(i241t)
+{
+map(i241t):=map(i241t)-1;
+}  
+	ignorehitpause if(Map(i241) <= $mb+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $down ))
+	{
+	
+	map(i241):= $mb + const(bit6)*1;
+	map(i241t):=map(sntimer);
+	}
+
+	if(floor(Map(i241)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCD Init 2
+	map(i241):= $mb + const(bit6)*2;
+	}
+	if(floor(Map(i241)/Const(Bit6)) = 2 &&  ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#QCD Init 2
+	map(i241):= $mb + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i241) && (Map(i241)&15) = 0||!map(i241t)&&$snk)
+	{
+	
+	map(i241):= 0;
+	}
+
+
+
+
+#QCB
+if map(i214t)
+{
+map(i214t):=map(i214t)-1;
+}  
+	ignorehitpause if(Map(i214) <= $qc + const(bit6)  && ((Map(r_dir)&15) = 2||(Map(p_dir)&$p_AllBits_dir) = $down||(Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#QCB Init 1
+	map(i214):= $qc + const(bit6)*1;
+	map(i214t):=map(sntimer);
+	}
+
+	if(floor(Map(i214)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$left))
+	{
+	#QCB Init 2
+	map(i214):= $qc + const(bit6)*2;
+	}
+	if(floor(Map(i214)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#QCB Init 3 
+	map(i214):= $qc + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i214) && (Map(i214)&15) = 0||!map(i214t)&&$snk)
+	{
+	
+	map(i214):= 0;
+	}
+
+
+
+#QCF
+if map(i236t)
+{
+map(i236t):=map(i236t)-1;
+}  
+let i2361 = $qc;
+let i2362 = $qc;
+let i2363 = $qc;
+                                                                    #v reset motion if active
+	ignorehitpause if(Map(i236) <= $qc + const(bit6)  && ((Map(r_dir)&15) = 2||(Map(p_dir)&$p_AllBits_dir) = $down||(Map(h_dir)&$p_AllBits_dir) = $down))
+	{
+	#rDP Init 2
+	
+	map(i236):= $i2361 + const(bit6)*1;
+	map(i236t):=map(sntimer);
+
+	}
+
+	if(floor(Map(i236)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $down+$right))
+	{
+	#rDP Init 2
+
+	map(i236):= $i2362 + const(bit6)*2;
+	}
+    	if(floor(Map(i236)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#rDP Init 3 
+	map(i236):= $i2363 + const(bit6)*3;
+	}
+	ignorehitpause if(Map(i236) && (Map(i236)&15) = 0||!map(i236t)&&$snk)
+	{
+		
+	map(i236):= 0;
+	}
+
+
+
+#CDU - (charge)D,U
+if map(i28t)
+{
+map(i28t):=map(i28t)-1;
+}  
+	ignorehitpause if(Map(i28) <= $cd + const(bit6) && cond(!root,Map(tw_charge_partition) && !root,Map(tw_NoCharge), root,Map(tw_D_ChargeReady), (Map(r_dir)&2) > 0||map(h_dir)&$down>0))
+	{
+	#CD,U Init 
+	map(i28):= $cd + const(bit6)*1;
+	map(i28t):=map(sntimer);
+	}
+	if(floor(Map(i28)/Const(Bit6)) = 1 && (Map(h_dir)&17) > 0)
+	{
+	#CD,U Init 2
+	map(i28):= $cd + const(bit6)*2;
+	}
+
+	ignorehitpause if(Map(i28) && (Map(i28)&15) = 0||!map(i28t)&&$snk)
+	{
+	
+	map(i28):= 0;
+	}
+
+#DD - D,D
+ 
+	ignorehitpause if(Map(i22) <= $dd + const(bit6)  && (Map(p_dir)&$p_AllBits_dir) = $down)
+	{
+	#CB,F Init 
+	map(i22):= $dd + const(bit6)*1;
+
+	}
+	if(floor(Map(i22)/Const(Bit6)) = 1 && (Map(p_dir)&$p_AllBits_dir) = $down)
+	{
+	#CB,F Init 2
+	map(i22):= $dd + const(bit6)*2;
+	}
+
+	ignorehitpause if(Map(i22) && (Map(i22)&15) = 0)
+	{
+	
+	map(i22):= 0;
+	}
+
+#LFF - F,F
+if map(l66t)
+{
+map(l66t):=map(l66t)-1;
+}  
+	ignorehitpause if(Map(l66) <= $lf+ const(bit6)  &&((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#FF Init 
+	map(l66):= $lf + const(bit6)*1;
+	map(l66t):=map(sntimer);
+	}
+	if(floor(Map(l66)/Const(Bit6)) = 1 && ((Map(r_dir)&15) = $release_Right))
+	{
+	#FF Init 2
+	map(l66):= floor($lf * .5)+ const(bit6)*2;
+	}
+		if(floor(Map(l66)/Const(Bit6)) = 2 && ((Map(p_dir)&$p_AllBits_dir) = $right))
+	{
+	#FF Init 2
+	map(l66):= $lf + const(bit6)*3;
+	}
+
+
+	ignorehitpause if(Map(l66) && (Map(l66)&15) = 0||(!map(l66t)||map(l66t)<25&&floor(Map(l66)/Const(Bit6)) = 2)&&$snk)
+	{
+	
+	map(l66):= 0;
+	}
+
+
+
+#LBB - B,B
+
+	ignorehitpause if(Map(l44) <= $lf+ const(bit6)  &&((Map(r_dir)&15) = 4))
+	{
+	#LBB Init 
+	map(l44):= $lf - 3 + const(bit6)*1;
+
+	}
+	if(floor(Map(l44)/Const(Bit6)) = 1 && ((Map(p_dir)&$p_AllBits_dir) = $left))
+	{
+	#LBB Init 2
+	map(l44):= $lf + const(bit6)*2;
+	}
+
+	ignorehitpause if( Map(l44) && ((Map(l44)&15) = 0 ))
+	{
+	
+	map(l44):= 0;
+	}
+
+
+
+
+
+#D - Longjump
+	ignorehitpause if !Map(i2) && (Map(p_dir)&34) > 0
+	{
+	#D Init
+	map(i2):= 9 + const(bit6)*1;
+	}
+	if (Map(i2) && (Map(i2)&15) = 0)
+	{
+	map(i2):= 0;
+	}
+
+
+
+
+
+
+#map buttons
+
+
+#-------|Hundred Hand Slap logic|-----
+
+
+#map directions
+
+
+
+
+root,Map(tw_Mashing):=0;
+ignorehitpause if(
+root,Map(tw_u_x)||root,Map(tw_u_y)||root,Map(tw_u_z)||root,Map(tw_u_w) ||
+root,Map(tw_u_a)||root,Map(tw_u_b)||root,Map(tw_u_c)||root,Map(tw_u_d) ||
+root,Map(tw_u_up)||root,Map(tw_u_bk)||root,Map(tw_u_fd)||root,Map(tw_u_dn)) {
+root,Map(tw_Mashing):=1;
+}
+
+
+
+#--------------------------------------
+
+#super Input
+
+if !root,Map(tw_LockInputHy)
+{
+
+
+
+
+#overwrite this shit
+
+
+root,Map(tw_PRTZ):=  floor(Map(i1632143)/Const(Bit6)) = 7;
+root,Map(tw_RPRTZ):= floor(Map(i3412361)/Const(Bit6)) = 7;
+
+#overwrite this shit
+ if Map(xx6az) > Map(xx4az)
+ {
+  map(xx4az):=0;
+ }
+  if Map(xx6az) < Map(xx4az) 
+ {
+  map(xx6az):=0;
+ }
+
+
+root,Map(tw_SGS6):=  floor(Map(xx6az)/Const(Bit6)) = 5;
+root,Map(tw_RSGS6):= floor(Map(xx4az)/Const(Bit6)) = 5;
+
+#overwrite this shit
+ if Map(xx6ay) > Map(xx4ay)
+ {
+  map(xx4ay):=0;
+ }
+  if Map(xx6ay) < Map(xx4ay) 
+ {
+ map(xx6ay):=0;
+ }
+
+root,Map(tw_SGS4):=  floor(Map(xx6ay)/Const(Bit6)) = 5;
+root,Map(tw_RSGS4):= floor(Map(xx4ay)/Const(Bit6)) = 5;
+
+#overwrite this shit
+ if Map(r_1319) > Map(r_3137)
+ {
+  map(r_3137):=0;
+ }
+  if Map(r_1319) < Map(r_3137) 
+ {
+  map(r_1319):=0;
+ }
+
+root,Map(tw_JKF):=  floor(Map(r_1319)/Const(Bit6)) = 4;
+root,Map(tw_RJKF):= floor(Map(r_3137)/Const(Bit6)) = 4;
+
+
+#overwrite this shit
+ if Map(r_4646) > Map(r_6464)
+ {
+  map(r_6464):=0;
+ }
+  if Map(r_4646) < Map(r_6464) 
+ {
+  map(r_4646):=0;
+ }
+
+root,Map(tw_FBFB):= floor(Map(r_6464)/Const(Bit6)) = 4;
+root,Map(tw_BFBF):= floor(Map(r_4646)/Const(Bit6)) = 4;
+
+
+#overwrite this shit
+
+
+root,Map(tw_QCFQC):= floor(Map(i23623)/Const(Bit6)) = 5;
+root,Map(tw_QCBQC):= floor(Map(i21421)/Const(Bit6)) = 5;
+
+
+
+#overwrite this shit
+
+
+
+root,Map(tw_QCFx2):= floor(Map(i236236)/Const(Bit6)) = 6;
+root,Map(tw_QCBx2):= floor(Map(i214214)/Const(Bit6)) = 6;
+
+
+#overwrite this shit
+
+
+
+root,Map(tw_HCBF):= floor(Map(i632146)/Const(Bit6)) = 6;
+root,Map(tw_HCFB):= floor(Map(i412364)/Const(Bit6)) = 6;
+
+#overwrite this shit
+
+
+
+root,Map(tw_FHCF):= floor(Map(i641236)/Const(Bit6)) = 6;
+root,Map(tw_BHCB):= floor(Map(i641236)/Const(Bit6)) = 6;
+
+#overwrite this shit
+
+root,Map(tw_QCFHCB):= floor(Map(i2363214)/Const(Bit6)) = 7;
+root,Map(tw_QCBHCF):= floor(Map(i2141236)/Const(Bit6)) = 7;
+
+#overwrite this shit
+ if Map(i6321463214) > Map(i4123641236)
+ {
+  map(i4123641236):=0;
+ }
+  if Map(i6321463214) < Map(i4123641236) 
+ {
+  map(i6321463214):=0;
+ }
+
+
+root,Map(tw_HCBx2):= floor(Map(i6321463214)/Const(Bit6)) = 6;
+root,Map(tw_HCFx2):= floor(Map(i4123641236)/Const(Bit6)) = 6;
+}
+
+#--------Special inputs
+if !root,Map(tw_LockInputSp) 
+{
+root,Map(tw_QCF):= floor(Map(i236)/Const(Bit6)) = 3;
+root,Map(tw_QCB):= floor(Map(i214)/Const(Bit6)) = 3;
+
+#overwrite this shit
+
+
+root,Map(tw_DP):=  floor(Map(i623)/Const(Bit6)) = 3;
+root,Map(tw_RDP):= floor(Map(i421)/Const(Bit6)) = 3;
+
+#overwrite this shit
+
+
+root,Map(tw_MiB):=  floor(Map(i263)/Const(Bit6)) = 3;
+root,Map(tw_RMiB):= floor(Map(i241)/Const(Bit6)) = 3;
+
+
+#overwrite this shit
+call checkRotation_tw();
+
+#overwrite this shit
+
+
+root,Map(tw_TGK):= floor(Map(i12369)/Const(Bit6)) = 5;
+root,Map(tw_RTGK):= floor(Map(i32147)/Const(Bit6)) = 5;
+
+#overwrite this shit
+
+
+root,Map(tw_HCF):= floor(Map(i426)/Const(Bit6)) = 3;
+root,Map(tw_HCB):= floor(Map(i624)/Const(Bit6)) = 3;
+
+#overwrite this shit
+
+
+root,Map(tw_sHCF):= floor(Map(i41236)/Const(Bit6)) = 5;
+root,Map(tw_sHCB):= floor(Map(i63214)/Const(Bit6)) = 5;
+
+#overwrite this shit
+
+
+root,Map(tw_BF):= floor(Map(i46)/Const(Bit6)) = 2;
+root,Map(tw_FB):= floor(Map(i64)/Const(Bit6)) = 2;
+
+
+
+root,Map(tw_TBF):= floor(Map(t46)/Const(Bit6)) = 2;
+root,Map(tw_TFB):= floor(Map(t64)/Const(Bit6)) = 2;
+
+#overwrite this shit
+
+
+root,Map(tw_FBF):= floor(Map(i646)/Const(Bit6)) = 3;
+root,Map(tw_BFB):= floor(Map(i464)/Const(Bit6)) = 3;
+
+root,Map(tw_CDU):= floor(Map(i28)/Const(Bit6)) = 2;
+root,Map(tw_DD):= floor(Map(i22)/Const(Bit6)) = 2;
+
+#overwrite this shit
+
+
+root,Map(tw_QCD):= floor(Map(i632)/Const(Bit6)) = 3;
+root,Map(tw_rQCD):= floor(Map(i412)/Const(Bit6)) = 3;
+
+
+
+
+
+root,Map(tw_LFF):= floor(Map(l66)/Const(Bit6)) = 3;
+root,Map(tw_LBB):= floor(Map(l44)/Const(Bit6)) = 2;
+
+
+}
+
+
+
+
+call checkRun($snk);
+
+}
+
+
