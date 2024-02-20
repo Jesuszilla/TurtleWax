@@ -1,7 +1,7 @@
 # TurtleWax for IKEMEN by Kamekaze and Jesuszilla
 This system aims to provide a complete command parser and buffering system for the IKEMEN-Go engine. A minimal
-installation requires turtlewax.lua to be placed in the mods folder, with each character specifying their own
-buffering.lua file to determine state setting logic.
+installation requires `turtlewax.zss` to be placed in the `CommonStates` section of `config.json`, with each
+character specifying their own `buffering.zss` file to determine state setting logic.
 
 ## Available Maps
 The following maps are made available to the user. All times are in frames:
