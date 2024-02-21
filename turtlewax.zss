@@ -396,7 +396,7 @@ root,Map(y):=(Map(p_att) &($y|$ry));
 root,Map(z):=(Map(p_att) &($z|$rz));
 root,Map(s):=(Map(p_att) &($s|$rs));
 root,Map(w):=(Map(p_att)&($w|$rw));
-root,Map(a):=(Map(p_att) &($a|$rb));
+root,Map(a):=(Map(p_att) &($a|$ra));
 root,Map(b):=(Map(p_att) &($b|$rb));
 root,Map(c):=(Map(p_att) &($c|$rc));
 root,Map(d):=(Map(p_att)&($d|$rd));
@@ -684,7 +684,7 @@ let cpt = root,Map(tw_charge_partition);
 	if (map(h_dir)&16) > 0 || (map(h_dir)&1)>0 {
 		map(ch_valu):=map(ch_valu)+1;
 		if $cpt {
-		map(chp_tu):=root,Map(tw_ChargePartitionTime);
+			map(chp_tu):=root,Map(tw_ChargePartitionTime);
 		}
 		if map(ch_valu) >= root,Map(tw_U_ChargeTime) {
 			root,Map(tw_U_ChargeReady):=root,Map(tw_U_BufferTime);
@@ -693,10 +693,10 @@ let cpt = root,Map(tw_charge_partition);
 	else {
 		if !root,hitpausetime {
 			if root,Map(tw_U_ChargeReady)>0  {
-			root,Map(tw_U_ChargeReady):=root,Map(tw_U_ChargeReady)-1;
+				root,Map(tw_U_ChargeReady):=root,Map(tw_U_ChargeReady)-1;
 			}
 			if  map(chp_tu)>0 {
-			map(chp_tu):=map(chp_tu)-1;
+				map(chp_tu):=map(chp_tu)-1;
 			}
 
 			if !$cpt || map(chp_tu)=0 {
@@ -963,19 +963,6 @@ let iLag = 0;			#additional input lag (in frames)
 
 
 
-if root,Map(tw_r_time) || enemynear,map(tw_r_time)
-{
-if teamside=1{
-map(player):=2;
-}
-else{
-map(player):=1;
-}
-}
-else
-{
-map(player):=0;
-}
 
 
 call checkbtn(map(player),$s,$x,$y,$z,$w,$a,$b,$c,$d,$release_Start,$release_x,$release_y,$release_z,$release_w,$release_a,$release_b,$release_c,$release_d);
@@ -1010,10 +997,11 @@ call setbtn($s,$x,$y,$z,$w,$a,$b,$c,$d,$release_Start,$release_x,$release_y,$rel
 
 }
 
-[Statedef 9992999; type:S;movetype:A;physics :N;ctrl:0;sprpriority:-1;anim:-2;]
+[Statedef 9992999; type:S;movetype:A;physics :N;ctrl:0;sprpriority:-1;]
 ignorehitpause{
 attackdist{value:0}
-bindtoroot{pos:0,0}
+bindtoroot{pos:0,500}
+assertspecial{flag:invisible}
 }
 
 if facing=1 && root,Map(tw_r_time)
