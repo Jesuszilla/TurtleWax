@@ -12,15 +12,10 @@ let r = id;
 
 let rot = playerid($r),root,id;
 
-if(playerid($rot),hitpausetime=0)
-{
-
 #Press Dec all buttons
 playerid($r),Map(p_att):= floor(playerid($r),Map(p_att)/Const(Bit10));
 playerid($r),Map(h_att):= floor(playerid($r),Map(h_att)/Const(Bit10));
 playerid($r),Map(r_att):= floor(playerid($r),Map(r_att)/Const(Bit10));
-}
-
 playerid($r),Map(m_att):= floor(playerid($r),Map(m_att)/Const(Bit10));
 
 #BUTTON HOLD:
