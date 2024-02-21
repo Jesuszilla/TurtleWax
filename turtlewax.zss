@@ -63,7 +63,7 @@ playerid($r),Map(h_att):= (playerid($r),Map(h_att)|$b);
 {
 #mp init 
 
-playerid($r),Map(h_att):= (playerid($r),Map(h_att)|$z);
+playerid($r),Map(h_att):= (playerid($r),Map(h_att)|$y);
 }
 
  if(command = "a"|| command = "hold_a")
