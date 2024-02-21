@@ -202,7 +202,8 @@ The following maps are made available to the user. All times are in frames:
 To properly make use of the command stateNo setting system, you must handle the ChangeState logic by setting
 and reading the `Map(tw_Buffer_ChangeStateNo)` variable. Once you change to the state that the buffering
 system sets, it will automatically reset it in +1 if you set it up like the examples have it. An example CNS
-implementation may look like the example below.
+implementation may look like the example below in your StateDef -1 `.cmd` (legacy) or `.cds` (recommended
+extension) file.
 
 You must also add `turtlewax.zss` and optionally (if you want the default command maps) `turtlewax_common.zss` to
 `CommonStates` in `config.json`. Change your `CommonCmd` to also use `common.cds` instead of `common.cmd`.
