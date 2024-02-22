@@ -2364,7 +2364,7 @@ map(i4268t):=map(i4268t)-1;
 	#4268 Init 4
 	map(i4268):= $b360-cond($snk, 0, 1) + const(bit6)*4;
 	}
-	ignorehitpause if(Map(i4268) && (Map(i4862)&15) = 0||!map(i4268t)&&$snk)
+	ignorehitpause if(Map(i4268) && (Map(i4268)&15) = 0||!map(i4268t)&&$snk)
 	{
 	
 	map(i4268):= 0;
