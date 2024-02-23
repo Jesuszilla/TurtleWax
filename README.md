@@ -21,9 +21,7 @@ The following maps are made available to the user. All times are in frames:
     <tr>
         <td style="text-align: center;">Map(tw_debug)</td>
         <td style="text-align: left;">
-            Set to nonzero to enable debug print statements (mainly for verifying command priority). Setting this
-            will also cause the script to crash if tw_ver does not match the one in this file, or if a character
-            is missing their buffering.lua file.
+            Set to nonzero to enable debug print statements.
         </td>
         <td style="text-align: center;">0</td>
     </tr>
