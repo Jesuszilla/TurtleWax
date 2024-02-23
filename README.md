@@ -212,7 +212,7 @@ commands that are alike such as `QCF`, `HCF`, and `QCFx2` for instance (they all
 Because doing Lua operations every frame is expensive and there are currently no arrays in ZSS, **you, the character
 author, are now responsible for resetting these.** Again, refer to Raiden's buffering.zss for more information on
 resetting alike commands. You should ideally only reset alike commands with 3 or more elements. A lot of Capcom and to an
-extent SNK do this. Observe your game for proper behavior. CvS2 for sure does this, though.
+extent SNK games do this. Observe your game for proper behavior. CvS2 for sure does this, though.
 
 TurtleWax 2.0 uses Capcom vs. SNK 2 3-star defaults for the Capcom commands.
 
