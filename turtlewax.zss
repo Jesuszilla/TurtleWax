@@ -87,7 +87,7 @@ playerid($r),Map(m_att):= (playerid($r),Map(m_att)|$s);
 {
 #d init 
 playerid($r),Map(p_att):= (playerid($r),Map(p_att)|$d);
-playerid($r),Map(p_att):= (playerid($r),Map(p_att)|$d);
+playerid($r),Map(m_att):= (playerid($r),Map(m_att)|$d);
 }
  if(command = "w")
 {
@@ -992,11 +992,12 @@ call setbtn($s,$x,$y,$z,$w,$a,$b,$c,$d,$release_Start,$release_x,$release_y,$rel
 
 }
 
-[Statedef 9992999; type:S;movetype:A;physics :N;ctrl:0;sprpriority:-1;]
+[Statedef 9992999; type:S;movetype:A;physics :N;ctrl:0;sprpriority:-1;anim:-2;]
 ignorehitpause{
 attackdist{value:0}
 bindtoroot{pos:0,500}
 assertspecial{flag:invisible}
+notHitBy{value:SCA;}
 }
 
 if facing=1 && root,Map(tw_r_time)
