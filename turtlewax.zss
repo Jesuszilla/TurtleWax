@@ -959,10 +959,18 @@ let iLag = 0;			#additional input lag (in frames)
 
 
 
-
+if !map(playback){
 call checkbtn(map(player),$s,$x,$y,$z,$w,$a,$b,$c,$d,$release_Start,$release_x,$release_y,$release_z,$release_w,$release_a,$release_b,$release_c,$release_d);
 call checkdir(map(player),$up,$down,$left,$right,$release_Up,$release_Down,$release_Left,$release_Right);
-
+}
+else
+{
+map(h_dir):=root,map(h_dir);
+map(p_dir):=root,map(p_dir);
+map(h_att):=root,map(h_att);
+map(p_att):=root,map(p_att);
+map(m_att):=root,map(m_att);
+}
 
 
 
@@ -1009,5 +1017,3 @@ if facing=-1 && !root,Map(tw_r_time)
 {
 turn{}
 }
-
-
