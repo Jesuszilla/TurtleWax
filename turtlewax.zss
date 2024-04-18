@@ -1,4 +1,94 @@
 #==|DO NOT TOUCH ANY OF THE FUNCTION LOGIC|======
+[Function replayReleaseCheck(s,x,y,z,w,a,b,c,d,rs,rx,ry,rz,rw,ra,rb,rc,rd,up,down,left,right,ru,rdn,rl,rr)]
+
+
+ if(Map(r_dir)> 0.5)
+{
+#Negative Edge
+Map(r_dir):= floor(Map(r_dir)*0.0625);
+}
+
+if((Map(r_dir)&$up) = 0 && (Map(h_dir)&$ru) > 0)
+{
+#up init 
+Map(r_dir):= (Map(r_dir)|$ru);
+}
+ if((Map(r_dir)&$down) = 0 && (Map(h_dir)&$rdn) > 0)
+{
+#down init 
+Map(r_dir):= (Map(r_dir)|$rdn);
+}
+
+ if((Map(r_dir)&$left) = 0 && (Map(h_dir)&$rl) > 0)
+{
+#back init 
+Map(r_dir):= (Map(r_dir)|$rl);
+}
+
+ if((Map(r_dir)&$right) = 0 && (Map(h_dir)&$rr) > 0)
+{
+
+#fwd init 
+Map(r_dir):= (Map(r_dir)|$rr);
+}
+
+#BUTTON RELEASE:
+
+ if((Map(h_att)&$s) = 0 && (Map(h_att)&$rs) > 0 )
+{
+#start init 
+Map(r_att):= (Map(r_att)|$rs);
+}
+
+ if((Map(h_att)&$d) = 0 && (Map(h_att)&$rd) > 0)
+{
+#d init 
+Map(r_att):= (Map(r_att)|$rd);
+}
+
+if((Map(h_att)&$w) = 0 && (Map(h_att)&$rw) > 0)
+{
+#w init 
+Map(r_att):= (Map(r_att)|$rw);
+}
+
+
+ if((Map(h_att)&$c) = 0 && (Map(h_att)&$rc) > 0)
+{
+#hk init 
+Map(r_att):= (Map(r_att)|$rc);
+}
+
+ if((Map(h_att)&$z) = 0 && (Map(h_att)&$rz) > 0)
+{
+#hp init 
+Map(r_att):= (Map(r_att)|$rz);
+}
+
+ if((Map(h_att)&$b) = 0 && (Map(h_att)&$rb) > 0)
+{
+#mk init 
+Map(r_att):= (Map(r_att)|$rb);
+}
+
+ if((Map(h_att)&$y) = 0 && (Map(h_att)&$ry) > 0)
+{
+#mp init 
+Map(r_att):= (Map(r_att)|$ry);
+}
+
+ if((Map(h_att)&$a) = 0 && (Map(h_att)&$ra) > 0)
+{
+#lk init 
+Map(r_att):= (Map(r_att)|$ra);
+}
+
+  if((Map(h_att)&$x) = 0 && (Map(h_att)&$rx) > 0)
+{
+#lp init 
+Map(r_att):= (Map(r_att)|$rx);
+}
+
 [Function checkBtn(r,s,x,y,z,w,a,b,c,d,rs,rx,ry,rz,rw,ra,rb,rc,rd)]
 if $r
 {
@@ -959,6 +1049,7 @@ let iLag = 0;			#additional input lag (in frames)
 
 
 
+
 if !map(playback){
 call checkbtn(map(player),$s,$x,$y,$z,$w,$a,$b,$c,$d,$release_Start,$release_x,$release_y,$release_z,$release_w,$release_a,$release_b,$release_c,$release_d);
 call checkdir(map(player),$up,$down,$left,$right,$release_Up,$release_Down,$release_Left,$release_Right);
@@ -970,7 +1061,11 @@ map(p_dir):=root,map(p_dir);
 map(h_att):=root,map(h_att);
 map(p_att):=root,map(p_att);
 map(m_att):=root,map(m_att);
+
+call replayReleaseCheck($s,$x,$y,$z,$w,$a,$b,$c,$d,$release_Start,$release_x,$release_y,$release_z,$release_w,$release_a,$release_b,$release_c,$release_d,$up,$down,$left,$right,$release_Up,$release_Down,$release_Left,$release_Right);
+
 }
+
 
 
 
