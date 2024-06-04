@@ -610,7 +610,13 @@ map(tw_i44):= ((Map(tw_i44)^(Map(tw_i44)&$basedecbit)) | ((Map(tw_i44)&$basedecb
 		map(tw_i66):=0;
 		map(tw_i44):=0;
 	}
-
+	
+	if (map(p_dir)&128)>0 && map(tw_i44){
+	map(tw_i44):=0;
+	}
+if (map(p_dir)&64)>0 && map(tw_i66){
+	map(tw_i66):=0;
+	}
 #FF - F,F
 	 if( Map(tw_i66) && ((Map(tw_i66)&$basedecbit) = 0 ))
 	{
@@ -2636,7 +2642,7 @@ if map(i12369t)
 {
 map(i12369t):=map(i12369t)-1;
 } 
-	ignorehitpause if(Map(i12369) <= $tg && ((Map(h_dir)&$p_AllBits_dir) = $down+$left))
+	ignorehitpause if(Map(i12369) <= $tg+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $down+$left))
 	{
 	#TGK Init 
 	map(i12369):= $tg + const(bit6)*1;
@@ -2675,7 +2681,7 @@ if map(i32147t)
 {
 map(i32147t):=map(i32147t)-1;
 } 
-	ignorehitpause if(Map(i32147) <= $tg && ((Map(h_dir)&$p_AllBits_dir) = $down+$right))
+	ignorehitpause if(Map(i32147) <= $tg+ const(bit6)  && ((Map(h_dir)&$p_AllBits_dir) = $down+$right))
 	{
 	#TGK Init 
 	map(i32147):= $tg + const(bit6)*1;
@@ -2713,7 +2719,7 @@ if map(i624t)
 {
 map(i624t):=map(i624t)-1;
 } 
-	ignorehitpause if(Map(i624) <= $hc && ((Map(h_dir)&$p_AllBits_dir) = $right))
+	ignorehitpause if(Map(i624) <= $hc+ const(bit6) && ((Map(h_dir)&$p_AllBits_dir) = $right))
 	{
 	#HCB Init 
 	map(i624):= $hc + const(bit6)*1;
@@ -3061,7 +3067,7 @@ let i2361 = $qc;
 let i2362 = $qc;
 let i2363 = $qc;
                                                                     #v reset motion if active
-	ignorehitpause if(Map(i236) <= $qc + const(bit6)  && ((Map(r_dir)&15) = 2||(Map(p_dir)&$p_AllBits_dir) = $down||(Map(h_dir)&$p_AllBits_dir) = $down))
+	ignorehitpause if(Map(i236) <= $qc + const(bit6)  && ((Map(p_dir)&$p_AllBits_dir) = $down||(Map(h_dir)&$p_AllBits_dir) = $down))
 	{
 	#rDP Init 2
 	
@@ -3113,20 +3119,26 @@ map(i28t):=map(i28t)-1;
 	}
 
 #DD - D,D
- 
-	ignorehitpause if(Map(i22) <= $dd + const(bit6)  && (Map(p_dir)&$p_AllBits_dir) = $down)
-	{
-	#CB,F Init 
-	map(i22):= $dd + const(bit6)*1;
+		for i= 0; 1;1 {
+		if $i=0{
 
+    	if  !map(i22) && (Map(r_dir)&15) = $release_Down  {
+			
+			map(i22):=$dd + const(Bit6);
+			map(i22t):=map(sntimer);
+			}
+			}	
+			else{
+				
+		if  floor(map(i22)/const(Bit6))=1&& (map(p_dir)&$p_AllBits_dir)=$down   {
+			map(i22):=$dd + const(Bit6)*2;
+			}
+				
+		
+		}
 	}
-	if(floor(Map(i22)/Const(Bit6)) = 1 && (Map(p_dir)&$p_AllBits_dir) = $down)
-	{
-	#CB,F Init 2
-	map(i22):= $dd + const(bit6)*2;
-	}
-
-	ignorehitpause if(Map(i22) && (Map(i22)&15) = 0)
+	
+	ignorehitpause if(Map(i22) && (Map(i22)&15) = 0||!map(i22t)&&$snk)
 	{
 	
 	map(i22):= 0;
@@ -3216,9 +3228,9 @@ map(l66t):=map(l66t)-1;
 
 root,Map(tw_Mashing):=0;
 ignorehitpause if(
-root,Map(tw_u_x)||root,Map(tw_u_y)||root,Map(tw_u_z)||root,Map(tw_u_w) ||
-root,Map(tw_u_a)||root,Map(tw_u_b)||root,Map(tw_u_c)||root,Map(tw_u_d) ||
-root,Map(tw_u_up)||root,Map(tw_u_bk)||root,Map(tw_u_fd)||root,Map(tw_u_dn)) {
+root,Map(u_x)||root,Map(u_y)||root,Map(u_z)||root,Map(u_w) ||
+root,Map(u_a)||root,Map(u_b)||root,Map(u_c)||root,Map(u_d) ||
+root,Map(u_up)||root,Map(u_bk)||root,Map(u_fd)||root,Map(u_dn)) {
 root,Map(tw_Mashing):=1;
 }
 
