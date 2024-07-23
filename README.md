@@ -214,6 +214,18 @@ author, are now responsible for resetting these.** Again, refer to Raiden's buff
 resetting alike commands. You should ideally only reset alike commands with 3 or more elements. A lot of Capcom and to an
 extent SNK games do this. Observe your game for proper behavior. CvS2 for sure does this, though.
 
+You must add the following to the bottom of your common.const file:
+
+	:TW
+	ih = 9992999
+
+You must also add the following maps to your character's .DEF in order to opt in to the TW input helper:
+
+	; Required by TW
+	[map]
+	u_tw=1
+	ih = 9992999
+
 TurtleWax 2.0 uses Capcom vs. SNK 2 3-star defaults for the Capcom commands.
 
 TurtleWax 2.0 is officially Raspberry Pi 4 performant!
