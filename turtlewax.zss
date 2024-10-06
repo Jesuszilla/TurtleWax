@@ -92,7 +92,7 @@ Map(r_att):= (Map(r_att)|$rx);
 [Function checkBtn(r,s,x,y,z,w,a,b,c,d,rs,rx,ry,rz,rw,ra,rb,rc,rd)]
 if $r
 {
-let r = playerid(getplayerid($r)),helper(const(ih)),id;
+let r = player($r),helper(const(ih)),id;
 
 }
 else
@@ -297,7 +297,7 @@ playerid($r),Map(r_att):= (playerid($r),Map(r_att)|$rx);
 if $r
 {
 let rv = 1;
-let r = playerid(getplayerid($r)),helper(const(ih)),id;
+let r = player($r),helper(const(ih)),id;
 
 }
 else
@@ -666,23 +666,21 @@ root,Map(HHSk):= (Map(mashtimerk) > 0 && Map(hhsk) > $mashct);
 
 
 if  gamemode!="versuscoop" && teammode=tag {
-if (playerid(getplayerid(1)),id)=root,id {
-playerid(getplayerid(3)),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-playerid(getplayerid(5)),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-playerid(getplayerid(7)),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-playerid(getplayerid(3)),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-playerid(getplayerid(5)),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-playerid(getplayerid(7)),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-
-}
-else{
-playerid(getplayerid(4)),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-playerid(getplayerid(6)),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-playerid(getplayerid(8)),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-playerid(getplayerid(4)),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-playerid(getplayerid(6)),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-playerid(getplayerid(8)),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-}
+	if (player(1),id)=root,id {
+		player(3),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+		player(5),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+		player(7),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+		player(3),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+		player(5),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+		player(7),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+	} else {
+		player(4),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+		player(6),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+		player(8),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+		player(4),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+		player(6),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+		player(8),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+	}
 }
 
 
