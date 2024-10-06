@@ -340,6 +340,9 @@ TurtleWax 2.0 is officially Raspberry Pi 4 performant!
 You can reload your characters' `buffering.zss` files the same as you always would (`Shift+F4`). This can be really helpful for debugging.
 
 ## History
+### Version 2.1
+* Updated to syntax planned for I.K.E.M.E.N-Go 1.0.
+
 ### Version 2.0
 * Changed to ZSS implementation.
 * Motion map names have been moved to `turtlewax_common.zss` and now prefixed with `tw_`. Base directions and buttons are unchanged.
