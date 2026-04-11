@@ -92,7 +92,7 @@ Map(r_att):= (Map(r_att)|$rx);
 [Function checkBtn(r,s,x,y,z,w,a,b,c,d,rs,rx,ry,rz,rw,ra,rb,rc,rd)]
 if $r
 {
-let r = player($r),helper(const(ih)),id;
+let r = playerid(player($r),id),helper(const(ih)),id;
 
 }
 else
@@ -102,10 +102,15 @@ let r = id;
 
 let rot = playerid($r),root,id;
 
+if(playerid($rot),hitpausetime=0)
+{
+
 #Press Dec all buttons
 playerid($r),Map(p_att):= floor(playerid($r),Map(p_att)/Const(Bit10));
 playerid($r),Map(h_att):= floor(playerid($r),Map(h_att)/Const(Bit10));
 playerid($r),Map(r_att):= floor(playerid($r),Map(r_att)/Const(Bit10));
+}
+
 playerid($r),Map(m_att):= floor(playerid($r),Map(m_att)/Const(Bit10));
 
 #BUTTON HOLD:
@@ -297,13 +302,15 @@ playerid($r),Map(r_att):= (playerid($r),Map(r_att)|$rx);
 if $r
 {
 let rv = 1;
-let r = player($r),helper(const(ih)),id;
+let r = playerid(player($r),id),helper(const(ih)),id;
 
 }
 else
 {
 let r = id;
 }
+
+
 
 let tc = root,Map(tw_turncheck);
 
@@ -371,7 +378,7 @@ playerid($r),Map(h_dir):= (playerid($r),Map(h_dir)|$up);
 
 }
 
- if(command = "down2" || command = "holddown")
+ if(command = "down2" || command = "holddown") 
 {
  if command = "down2"
 {
@@ -380,7 +387,9 @@ playerid($r),Map(p_dir):= (playerid($r),Map(p_dir)|$down);
 
 }
 #down init 
+if  command != "holdup" {
 playerid($r),Map(h_dir):= (playerid($r),Map(h_dir)|$down);
+}
 
 }
 
@@ -393,7 +402,9 @@ if ((command="back2" ) && $fcond1) ||((command="fwd2" ) && $fcond2) {
 
 playerid($r),Map(p_dir):= (playerid($r),Map(p_dir)|$left);
 }
+if  (command!="holdfwd"  && $fcond1)|| (command!="holdback"  && $fcond2){
 playerid($r),Map(h_dir):= (playerid($r),Map(h_dir)|$left);
+}
 }
 
 
@@ -404,14 +415,16 @@ if ((command="back2" ) && $fcond2) ||((command="fwd2" ) && $fcond1) {
 #back 
 playerid($r),Map(p_dir):= (playerid($r),Map(p_dir)|$right);
 }
+
 playerid($r),Map(h_dir):= (playerid($r),Map(h_dir)|$right);
+
 }
 
 
 
 #DIRECTION RELEASE:
 
-if((playerid($r),Map(r_dir)&$up) = 0 && (playerid($r),Map(h_dir)&$ru) > 0)
+if((playerid($r),Map(h_dir)&$up) = 0 && (playerid($r),Map(h_dir)&$ru) > 0)
 {
 #up init 
 playerid($r),Map(r_dir):= (playerid($r),Map(r_dir)|$ru);
@@ -428,7 +441,7 @@ playerid($r),Map(r_dir):= (playerid($r),Map(r_dir)|$rd);
 playerid($r),Map(r_dir):= (playerid($r),Map(r_dir)|$rl);
 }
 
- if((playerid($r),Map(h_dir)&$right) = 0 && (playerid($r),Map(h_dir)&$rr) > 0)
+ if((playerid($r),Map(h_dir)&$right) = 0 && (playerid($r),Map(h_dir)&$rr) >0 )
 {
 
 #fwd init 
@@ -451,10 +464,10 @@ AssertSpecial{flag:nostandguard;flag2:nocrouchguard;flag3:noairguard;redirectid:
 
 
 #printtoconsole{text:"%d %d %d %d";params:root,id,playerid($rot),id, Map(p_dir),teamside}
-root,Map(p_Up):=(Map(p_dir)&$up);
-root,Map(p_Dn):=(Map(p_dir)&$down);
-root,Map(p_Bk):=(Map(p_dir)&$left);
-root,Map(p_Fd):=(Map(p_dir)&$right);
+root,Map(p_Up):=(Map(p_dir)&($up|$ru));
+root,Map(p_Dn):=(Map(p_dir)&($down|$rd));
+root,Map(p_Bk):=(Map(p_dir)&($left|$rl));
+root,Map(p_Fd):=(Map(p_dir)&($right|$rr));
 
 root,Map(h_Up):=(Map(h_dir)&($up|$ru));
 root,Map(h_Dn):=(Map(h_dir)&($down|$rd)) ;
@@ -506,15 +519,15 @@ root,Map(r_b):=(Map(r_att) &$rb);
 root,Map(r_c):=(Map(r_att) &$rc);
 root,Map(r_d):=(Map(r_att)&$rd);
 
-root,Map(u_x):=(Map(p_att) &$x);
-root,Map(u_y):=(Map(p_att) &$y);
-root,Map(u_z):=(Map(p_att) &$z);
-root,Map(u_w):=(Map(p_att)&$w);
-root,Map(u_s):=(Map(p_att) &$s);
-root,Map(u_a):=(Map(p_att) &$a);
-root,Map(u_b):=(Map(p_att) &$b);
-root,Map(u_c):=(Map(p_att) &$c);
-root,Map(u_d):=(Map(p_att)&$d);
+root,Map(u_x):=(Map(m_att) &$x);
+root,Map(u_y):=(Map(m_att) &$y);
+root,Map(u_z):=(Map(m_att) &$z);
+root,Map(u_w):=(Map(m_att)&$w);
+root,Map(u_s):=(Map(m_att) &$s);
+root,Map(u_a):=(Map(m_att) &$a);
+root,Map(u_b):=(Map(m_att) &$b);
+root,Map(u_c):=(Map(m_att) &$c);
+root,Map(u_d):=(Map(m_att)&$d);
 
 root,Map(m_x):=(Map(m_att) &($x|$rx));
 root,Map(m_y):=(Map(m_att) &($y|$ry));
@@ -597,7 +610,7 @@ root,Map(tw_F_BufferTime):=9;
 
 if !root,Map(tw_Dash_input1_BufferTime)#first input time f||run
 {
-root,Map(tw_Dash_input1_BufferTime):=9;
+root,Map(tw_Dash_input1_BufferTime):=11;
 }
 
 if !root,Map(tw_Dash_input2_BufferTime)#first input time f||run
@@ -666,21 +679,23 @@ root,Map(HHSk):= (Map(mashtimerk) > 0 && Map(hhsk) > $mashct);
 
 
 if  gamemode!="versuscoop" && teammode=tag {
-	if (player(1),id)=root,id {
-		player(3),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-		player(5),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-		player(7),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-		player(3),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-		player(5),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-		player(7),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-	} else {
-		player(4),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-		player(6),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-		player(8),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
-		player(4),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-		player(6),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-		player(8),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
-	}
+if (player(1),id)=root,id {
+player(3),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+playerid(5),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+playerid(7),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+player(3),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+playerid(5),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+playerid(7),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+
+}
+else{
+player(4),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+playerid(6),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+playerid(8),Map(HHSP):= (Map(mashtimer) > 0  && Map(hhsp) > $mashct);
+player(4),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+playerid(6),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+playerid(8),Map(HHSK):= (Map(mashtimerk) > 0  && Map(hhsk) > $mashct);
+}
 }
 
 
@@ -751,7 +766,7 @@ let cpt = root,Map(tw_charge_partition);
 	else {
 		if !root,hitpausetime {
 			if root,Map(tw_F_ChargeReady)>0  {
-				root,Map(tw_F_ChargeReady):=root,Map(tw_F_ChargeReady)-1;
+			root,Map(tw_F_ChargeReady):=root,Map(tw_F_ChargeReady)-1;
 			}
 			if  map(chp_tf)>0 {
 			map(chp_tf):=map(chp_tf)-1;
@@ -812,6 +827,9 @@ Helper{
 
 
 ignorehitpause if ishelper(const(ih)) {
+
+assertspecial{flag:runfirst;flag2:invisible}
+
 if time=1{
 call setDefault();
 }
@@ -1047,13 +1065,13 @@ let iLag = 0;			#additional input lag (in frames)
 
 
 
-
 if !map(playback){
 call checkbtn(map(player),$s,$x,$y,$z,$w,$a,$b,$c,$d,$release_Start,$release_x,$release_y,$release_z,$release_w,$release_a,$release_b,$release_c,$release_d);
 call checkdir(map(player),$up,$down,$left,$right,$release_Up,$release_Down,$release_Left,$release_Right);
 }
 else
 {
+
 map(h_dir):=root,map(h_dir);
 map(p_dir):=root,map(p_dir);
 map(h_att):=root,map(h_att);
@@ -1062,8 +1080,8 @@ map(m_att):=root,map(m_att);
 
 call replayReleaseCheck($s,$x,$y,$z,$w,$a,$b,$c,$d,$release_Start,$release_x,$release_y,$release_z,$release_w,$release_a,$release_b,$release_c,$release_d,$up,$down,$left,$right,$release_Up,$release_Down,$release_Left,$release_Right);
 
-}
 
+}
 
 
 
@@ -1086,10 +1104,11 @@ call setdir($up,$down,$left,$right,$release_Up,$release_Down,$release_Left,$rele
 call setbtn($s,$x,$y,$z,$w,$a,$b,$c,$d,$release_Start,$release_x,$release_y,$release_z,$release_w,$release_a,$release_b,$release_c,$release_d);
 }
 
+
 }
 
 
-
+#call playerfunction();
 
 }
 
@@ -1114,15 +1133,19 @@ let ap =cond(player(2),id=root,id,2,cond(player(4),id=root,id,4,cond(player(6),i
 }
 
 posset{x:player($ap),pos x;y:500}
-assertspecial{flag:invisible}
+
 }
 
 if facing=1 && root,Map(tw_r_time)
 {
+map(pf):=facing;
 turn{}
 }
 
 if facing=-1 && !root,Map(tw_r_time)
 {
+map(pf):=facing;
 turn{}
 }
+
+
